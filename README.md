@@ -1,35 +1,30 @@
-# DIGITEM-MX Website - SALUD-V1.5
+# SALUD-V1.8
 
-Proyecto Astro unificado para DIGITEM-MX:
+Proyecto Astro unificado para DIGITEM-MX con actualización de `/demo/dentista`.
 
-- `/` Matriz DIGITEM-MX
-- `/salud` Landing DIGITEM-MX Salud
-- `/salud/dentista` Página comercial dental optimizada
-- `/salud/psicologia` Placeholder de vertical psicología
-- `/demo/dentista` Demo dental
-- `/demo/psicologia` Demo psicología
+## Cambios de esta versión
 
-## Cambios V1.5
+- Demo de Clínica Dental Aurora adaptada desde la propuesta de Gemini, pero simplificada para que no se vea tan generada por IA.
+- Nueva paleta Aurora más sobria: navy, mint, lavanda suave y coral para CTAs.
+- Hero con fotografía clínica + módulo de agenda interactiva.
+- Más fotografías de consultorio, dentistas y experiencia clínica; se evitan close-ups invasivos de dientes/procedimientos.
+- Conserva copy SEO, metadata, JSON-LD Dentist, FAQPage y Service.
+- Estructura mobile responsive.
 
-- Optimización visual de `/salud/dentista`.
-- Mejor espaciado en H1/H2 y tarjetas para evitar texto encimado.
-- Sustitución de imágenes clínicas que podían causar microansiedad.
-- Cards de escenarios rediseñadas con gradientes seguros en lugar de procedimientos dentales.
-- CTA de demo convertido en bloque full-width con imagen y degradado.
-- Ajustes mobile para hero, cards y CTA de demo.
-
-## Scripts
+## Comandos
 
 ```bash
 npm install
 npm run dev
-npm run build
+```
+
+Abrir:
+
+```text
+http://localhost:4321/demo/dentista
 ```
 
 
-## SALUD-V1.5
+## SALUD-V2.0
 
-- Ajuste del layout de Método para dar más aire a etiquetas como Especialización.
-- Casos de búsqueda rediseñados con fotografía segura: consulta, confianza y consultorio luminoso sin procedimientos invasivos.
-- CTA de demo dental convertido en bloque full-width con degradado, imagen y acción más clara.
-- Descarga estandarizada como SALUD-V1.5.zip.
+/demo/dentista fue ajustada para acercarse más a la propuesta visual premium de Gemini para Clínica Dental Aurora: hero tipo Aurora, agenda interactiva, navegación propia de clínica, panel SEO visible y estructura Salud Max. Se mantiene el copy SEO, JSON-LD y enlaces internos.
