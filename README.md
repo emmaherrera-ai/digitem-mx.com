@@ -1,30 +1,22 @@
-# SALUD-V1.8
+# SALUD-V3.4
 
-Proyecto Astro unificado para DIGITEM-MX con actualización de `/demo/dentista`.
+Actualización de `/salud/psicologia`:
 
-## Cambios de esta versión
+- Footer corregido para mostrarse siempre visible y fuera del sistema de animaciones.
+- Transiciones de entrada más suaves y editoriales.
+- Duración aumentada a 1.08 s en desktop y 0.82 s en mobile.
+- Delays escalonados más amplios para evitar entradas simultáneas.
+- Se mantiene `prefers-reduced-motion` por accesibilidad.
+- No se modifican hero, copy, navbar ni layouts aprobados.
 
-- Demo de Clínica Dental Aurora adaptada desde la propuesta de Gemini, pero simplificada para que no se vea tan generada por IA.
-- Nueva paleta Aurora más sobria: navy, mint, lavanda suave y coral para CTAs.
-- Hero con fotografía clínica + módulo de agenda interactiva.
-- Más fotografías de consultorio, dentistas y experiencia clínica; se evitan close-ups invasivos de dientes/procedimientos.
-- Conserva copy SEO, metadata, JSON-LD Dentist, FAQPage y Service.
-- Estructura mobile responsive.
-
-## Comandos
+## Desarrollo local
 
 ```bash
 npm install
 npm run dev
 ```
 
-Abrir:
 
-```text
-http://localhost:4321/demo/dentista
-```
-
-
-## SALUD-V2.0
-
-/demo/dentista fue ajustada para acercarse más a la propuesta visual premium de Gemini para Clínica Dental Aurora: hero tipo Aurora, agenda interactiva, navegación propia de clínica, panel SEO visible y estructura Salud Max. Se mantiene el copy SEO, JSON-LD y enlaces internos.
+## SALUD-V3.4
+- La sección de demo de psicología replica el formato visual limpio de la demo dental.
+- Fondo fotográfico de ancho completo, degradado de contraste, CTA primario y enlace secundario.
