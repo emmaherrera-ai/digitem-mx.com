@@ -10,19 +10,19 @@ const itUrl = `${whatsappBase}?text=${itMessage}`;
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>DIGITEM-MX | Transforma. Conecta. Evoluciona.</title>
-    <meta name="description" content="DIGITEM-MX ayuda a empresas a ordenar su operación, conectar con su mercado y evolucionar con tecnología mediante COREM, DIGITEM Salud y DIGITEM IT." />
+    <title>DIGITEM-MX | Socio Tecnológico para Empresas en Crecimiento</title>
+    <meta name="description" content="DIGITEM-MX ayuda a empresas a ordenar operaciones, fortalecer su infraestructura tecnológica y acelerar su crecimiento mediante software empresarial, soluciones digitales y servicios IT." />
     <meta name="robots" content="index, follow, max-image-preview:large" />
     <meta name="theme-color" content="#11999E" />
-    <meta name="keywords" content="DIGITEM-MX, socio tecnológico, transformación digital, software empresarial, ERP CRM, COREM, DIGITEM Salud, DIGITEM IT, soporte tecnológico, landing pages SEO" />
-    <meta property="og:title" content="DIGITEM-MX | Transforma. Conecta. Evoluciona." />
-    <meta property="og:description" content="Tecnología y estructura para empresas que deciden crecer con claridad." />
+    <meta name="keywords" content="DIGITEM-MX, socio tecnológico para empresas, transformación digital para empresas, software empresarial México, ERP CRM, COREM, infraestructura tecnológica, consultoría tecnológica, servicios IT, landing pages SEO salud" />
+    <meta property="og:title" content="DIGITEM-MX | Socio Tecnológico para Empresas" />
+    <meta property="og:description" content="Software empresarial, soluciones digitales e infraestructura tecnológica para empresas que buscan crecer con orden." />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://digitem-mx.com" />
     <meta property="og:locale" content="es_MX" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="DIGITEM-MX | Transforma. Conecta. Evoluciona." />
-    <meta name="twitter:description" content="Socio tecnológico para empresas que buscan ordenar, conectar y evolucionar mediante tecnología." />
+    <meta name="twitter:title" content="DIGITEM-MX | Socio Tecnológico para Empresas" />
+    <meta name="twitter:description" content="Software empresarial, soluciones digitales e infraestructura tecnológica para empresas que buscan crecer con orden." />
     <link rel="canonical" href="https://digitem-mx.com" />
     <script type="application/ld+json" set:html={JSON.stringify({
       '@context': 'https://schema.org',
@@ -56,6 +56,7 @@ const itUrl = `${whatsappBase}?text=${itMessage}`;
           '@id': 'https://digitem-mx.com/#corem',
           name: 'COREM',
           serviceType: 'Software empresarial modular ERP y CRM',
+          description: 'ERP y CRM modular para centralizar procesos, finanzas, ventas, clientes e inventario en empresas en crecimiento.',
           provider: { '@id': 'https://digitem-mx.com/#organization' },
           areaServed: 'México'
         },
@@ -64,6 +65,7 @@ const itUrl = `${whatsappBase}?text=${itMessage}`;
           '@id': 'https://digitem-mx.com/#digitem-salud',
           name: 'DIGITEM Salud',
           serviceType: 'Landing pages SEO y estrategia digital para profesionales de salud',
+          description: 'Soluciones digitales para clínicas, consultorios y especialistas que buscan visibilidad, captación de pacientes y presencia profesional.',
           provider: { '@id': 'https://digitem-mx.com/#organization' },
           areaServed: 'México'
         },
@@ -72,6 +74,7 @@ const itUrl = `${whatsappBase}?text=${itMessage}`;
           '@id': 'https://digitem-mx.com/#digitem-it',
           name: 'DIGITEM IT',
           serviceType: 'Diagnóstico tecnológico, soporte, mantenimiento e infraestructura',
+          description: 'Servicios IT para diagnóstico tecnológico, soporte, mantenimiento, reparación, mejora de equipos e infraestructura empresarial.',
           provider: { '@id': 'https://digitem-mx.com/#organization' },
           areaServed: 'México'
         }
@@ -128,7 +131,7 @@ const itUrl = `${whatsappBase}?text=${itMessage}`;
           <div class="hero-copy reveal">
             <p class="eyebrow">Corporate Tech Partner</p>
             <h1 id="hero-title">Transforma.<br />Conecta.<br />Evoluciona.</h1>
-            <p class="hero-lead">Tecnología y estructura para empresas que deciden crecer con claridad.</p>
+            <p class="hero-lead">Software empresarial, infraestructura tecnológica y soluciones digitales para empresas que buscan crecer con orden.</p>
             <div class="hero-actions">
               <button class="btn btn-primary agenda-trigger" type="button" data-open-agenda>Agendar diagnóstico</button>
               <a class="btn btn-secondary" href="#soluciones">Conocer soluciones <span aria-hidden="true">→</span></a>
@@ -296,7 +299,10 @@ const itUrl = `${whatsappBase}?text=${itMessage}`;
           </span>
           <span class="brand-word">DIGITEM-MX</span>
         </a>
-        <p>Transforma. Conecta. Evoluciona.</p>
+        <div class="footer-tagline" aria-label="Enfoque DIGITEM-MX">
+          <p>Transforma. Conecta. Evoluciona.</p>
+          <p class="footer-seo-line">Software empresarial · Soluciones digitales · Infraestructura tecnológica</p>
+        </div>
         <nav aria-label="Footer DIGITEM-MX">
           <a href="#metodo">Método</a>
           <a href="#soluciones">Soluciones</a>
@@ -564,6 +570,9 @@ Contexto: ${context}`);
   .matrix-footer { background: #fff; color: var(--muted); border-top: 1px solid rgba(17,38,53,.08); }
   .footer-inner { padding: 36px 0; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
   .footer-inner p { margin: 0; font-weight: 700; }
+  .footer-tagline { display: grid; gap: 5px; min-width: 0; }
+  .footer-tagline > p:first-child { color: #69767d; font-weight: 900; letter-spacing: -.02em; }
+  .footer-seo-line { color: #8a959b; font-size: .78rem; line-height: 1.35; font-weight: 600 !important; letter-spacing: .02em; opacity: .78; }
   .footer-inner nav { display: flex; gap: 22px; font-weight: 900; color: var(--teal); }
   .copyright { border-top: 1px solid rgba(17,38,53,.06); text-align: center; padding: 18px; font-size: .9rem; color: #8a959b; }
 
@@ -612,6 +621,8 @@ Contexto: ${context}`);
     .method-grid, .solutions-grid { grid-template-columns: 1fr; }
     .cta-shell { grid-template-columns: 1fr; }
     .footer-inner { flex-direction: column; align-items: flex-start; }
+    .footer-tagline { gap: 4px; }
+    .footer-seo-line { max-width: 300px; }
     .footer-inner nav { flex-wrap: wrap; }
   }
 
