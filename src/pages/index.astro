@@ -1,24 +1,82 @@
 ---
 const whatsappBase = 'https://wa.me/5522971545';
-const consultMessage = encodeURIComponent('Buena tarde, equipo de DIGITEM-MX. Me interesa solicitar una consulta digital para revisar oportunidades de crecimiento para mi empresa.');
-const infoMessage = encodeURIComponent('Buena tarde, equipo de DIGITEM-MX. Me gustaría recibir más información sobre sus servicios digitales.');
-const diagnosisMessage = encodeURIComponent('Buena tarde, equipo de DIGITEM-MX. Me interesa solicitar un diagnóstico digital para mi empresa.');
-const consultUrl = `${whatsappBase}?text=${consultMessage}`;
-const infoUrl = `${whatsappBase}?text=${infoMessage}`;
+const diagnosisMessage = encodeURIComponent('Buena tarde, equipo de DIGITEM-MX. Me interesa agendar un diagnóstico estratégico para revisar la siguiente etapa tecnológica de mi empresa.');
+const itMessage = encodeURIComponent('Buena tarde, equipo de DIGITEM-MX. Me interesa conocer más sobre DIGITEM IT y diagnóstico tecnológico.');
 const diagnosisUrl = `${whatsappBase}?text=${diagnosisMessage}`;
+const itUrl = `${whatsappBase}?text=${itMessage}`;
 ---
 <!doctype html>
 <html lang="es-MX">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>DIGITEM-MX | Transformación Digital para Empresas</title>
-    <meta name="description" content="Soluciones digitales a medida para impulsar el crecimiento de tu empresa. Desarrollo web, consultoría digital, COREM-Suite y servicios digitales en México." />
-    <meta property="og:title" content="DIGITEM-MX | Transformación Digital para Empresas" />
-    <meta property="og:description" content="Transforma, conecta y evoluciona con soluciones digitales accesibles, confiables y de alta calidad." />
+    <title>DIGITEM-MX | Transforma. Conecta. Evoluciona.</title>
+    <meta name="description" content="DIGITEM-MX ayuda a empresas a ordenar su operación, conectar con su mercado y evolucionar con tecnología mediante COREM, DIGITEM Salud y DIGITEM IT." />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
+    <meta name="theme-color" content="#11999E" />
+    <meta name="keywords" content="DIGITEM-MX, socio tecnológico, transformación digital, software empresarial, ERP CRM, COREM, DIGITEM Salud, DIGITEM IT, soporte tecnológico, landing pages SEO" />
+    <meta property="og:title" content="DIGITEM-MX | Transforma. Conecta. Evoluciona." />
+    <meta property="og:description" content="Tecnología y estructura para empresas que deciden crecer con claridad." />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://digitem-mx.com" />
+    <meta property="og:locale" content="es_MX" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="DIGITEM-MX | Transforma. Conecta. Evoluciona." />
+    <meta name="twitter:description" content="Socio tecnológico para empresas que buscan ordenar, conectar y evolucionar mediante tecnología." />
     <link rel="canonical" href="https://digitem-mx.com" />
+    <script type="application/ld+json" set:html={JSON.stringify({
+      '@context': 'https://schema.org',
+      '@graph': [
+        {
+          '@type': 'Organization',
+          '@id': 'https://digitem-mx.com/#organization',
+          name: 'DIGITEM-MX',
+          url: 'https://digitem-mx.com',
+          slogan: 'Transforma. Conecta. Evoluciona.',
+          email: 'emma_herrera@digitem-mx.com',
+          sameAs: ['https://www.instagram.com/digitem.mx'],
+          contactPoint: {
+            '@type': 'ContactPoint',
+            telephone: '+52-55-2297-1545',
+            contactType: 'customer service',
+            areaServed: 'MX',
+            availableLanguage: ['es']
+          }
+        },
+        {
+          '@type': 'WebSite',
+          '@id': 'https://digitem-mx.com/#website',
+          url: 'https://digitem-mx.com',
+          name: 'DIGITEM-MX',
+          publisher: { '@id': 'https://digitem-mx.com/#organization' },
+          inLanguage: 'es-MX'
+        },
+        {
+          '@type': 'Service',
+          '@id': 'https://digitem-mx.com/#corem',
+          name: 'COREM',
+          serviceType: 'Software empresarial modular ERP y CRM',
+          provider: { '@id': 'https://digitem-mx.com/#organization' },
+          areaServed: 'México'
+        },
+        {
+          '@type': 'Service',
+          '@id': 'https://digitem-mx.com/#digitem-salud',
+          name: 'DIGITEM Salud',
+          serviceType: 'Landing pages SEO y estrategia digital para profesionales de salud',
+          provider: { '@id': 'https://digitem-mx.com/#organization' },
+          areaServed: 'México'
+        },
+        {
+          '@type': 'Service',
+          '@id': 'https://digitem-mx.com/#digitem-it',
+          name: 'DIGITEM IT',
+          serviceType: 'Diagnóstico tecnológico, soporte, mantenimiento e infraestructura',
+          provider: { '@id': 'https://digitem-mx.com/#organization' },
+          areaServed: 'México'
+        }
+      ]
+    })}></script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Lato:wght@400;700&display=swap" rel="stylesheet" />
@@ -26,168 +84,247 @@ const diagnosisUrl = `${whatsappBase}?text=${diagnosisMessage}`;
   <body>
     <header class="matrix-header" aria-label="Navegación principal DIGITEM-MX">
       <div class="container header-inner">
-        <a class="matrix-logo" href="/" aria-label="Ir al inicio de DIGITEM-MX">
-          <span>DIGITEM-MX</span>
+        <a class="brand-lockup" href="/" aria-label="Ir al inicio de DIGITEM-MX">
+          <span class="brand-word">DIGITEM-MX</span>
         </a>
         <button class="menu-toggle" type="button" aria-label="Abrir menú" aria-expanded="false">☰</button>
-        <nav class="matrix-nav" aria-label="Secciones de la matriz">
-          <a href="#inicio">Inicio</a>
-          <a href="#nosotros">Nosotros</a>
-          <a href="#servicios">Servicios</a>
-          <a href="http://www.corem-mx.org" target="_blank" rel="noopener noreferrer">COREM-Suite</a>
-          <a href="#socios">Socios Comerciales</a>
-          <a href="#contacto">Contacto</a>
-          <a class="nav-button" href={consultUrl}>Agenda</a>
+        <nav class="matrix-nav" aria-label="Secciones de DIGITEM-MX">
+          <div class="nav-item has-panel">
+            <a href="#metodo" class="nav-link">Método</a>
+            <div class="apple-panel" role="menu" aria-label="Resumen del método DIGITEM-MX">
+              <p class="panel-kicker">Método DIGITEM-MX</p>
+              <a href="#metodo"><strong>Transforma</strong><span>Ordena procesos y operación con COREM.</span></a>
+              <a href="#metodo"><strong>Conecta</strong><span>Construye presencia y captación con DIGITEM Salud.</span></a>
+              <a href="#metodo"><strong>Evoluciona</strong><span>Fortalece infraestructura, soporte y continuidad con DIGITEM IT.</span></a>
+            </div>
+          </div>
+          <div class="nav-item has-panel">
+            <a href="#soluciones" class="nav-link">Soluciones</a>
+            <div class="apple-panel" role="menu" aria-label="Soluciones DIGITEM-MX">
+              <p class="panel-kicker">Tres raíces comerciales</p>
+              <a href="http://www.corem-mx.org" target="_blank" rel="noopener noreferrer"><strong>COREM</strong><span>Software empresarial modular.</span></a>
+              <a href="/salud"><strong>DIGITEM Salud</strong><span>Landing pages SEO para profesionales de salud.</span></a>
+              <a href={itUrl}><strong>DIGITEM IT</strong><span>Diagnóstico, soporte e infraestructura.</span></a>
+            </div>
+          </div>
+          <div class="nav-item has-panel">
+            <a href="#contacto" class="nav-link">Contacto</a>
+            <div class="apple-panel contact-panel" role="menu" aria-label="Canales de contacto DIGITEM-MX">
+              <p class="panel-kicker">Hablemos</p>
+              <a href="https://wa.me/5522971545" target="_blank" rel="noopener noreferrer"><strong>WhatsApp</strong><span>wa.me/5522971545</span></a>
+              <a href="mailto:emma_herrera@digitem-mx.com"><strong>Correo</strong><span>emma_herrera@digitem-mx.com</span></a>
+              <a href="https://www.instagram.com/digitem.mx" target="_blank" rel="noopener noreferrer"><strong>Instagram</strong><span>@digitem.mx</span></a>
+            </div>
+          </div>
+          <button class="nav-button agenda-trigger" type="button" data-open-agenda>Agendar</button>
           <a class="login-button" href="https://suite.digitem-mx.com" target="_blank" rel="noopener noreferrer">Iniciar</a>
         </nav>
       </div>
     </header>
 
     <main>
-      <section id="inicio" class="matrix-hero" aria-labelledby="matrix-hero-title">
-        <div class="container hero-grid">
-          <div class="hero-copy fade-in">
-            <h1 id="matrix-hero-title">Transforma.<br />Conecta.<br />Evoluciona.</h1>
-            <p>Soluciones digitales a medida para impulsar el crecimiento de tu empresa en la era digital.</p>
+      <section id="inicio" class="hero-section" aria-labelledby="hero-title">
+        <div class="hero-shell container">
+          <div class="hero-copy reveal">
+            <p class="eyebrow">Corporate Tech Partner</p>
+            <h1 id="hero-title">Transforma.<br />Conecta.<br />Evoluciona.</h1>
+            <p class="hero-lead">Tecnología y estructura para empresas que deciden crecer con claridad.</p>
             <div class="hero-actions">
-              <a class="btn btn-primary" href={consultUrl}>Solicitar Consulta Digital</a>
-              <a class="btn btn-secondary" href="#servicios">Conoce Nuestros Servicios <span aria-hidden="true">→</span></a>
+              <button class="btn btn-primary agenda-trigger" type="button" data-open-agenda>Agendar diagnóstico</button>
+              <a class="btn btn-secondary" href="#soluciones">Conocer soluciones <span aria-hidden="true">→</span></a>
             </div>
           </div>
-          <div class="hero-art slide-up" aria-hidden="true">
-            <div class="art-bg"></div>
-            <div class="brand-shapes">
-              <div class="shape-triangle"></div>
-              <div class="shape-bar"></div>
-              <div class="shape-circle"></div>
+          <div class="hero-mark reveal delay-1" aria-hidden="true">
+            <div class="mark-field">
+              <div class="shape-system">
+                <span class="shape triangle"></span>
+                <span class="shape bar"></span>
+                <span class="shape circle"></span>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      <section id="nosotros" class="section section-alt" aria-labelledby="about-title">
-        <div class="container">
-          <h2 id="about-title" class="section-title">Nosotros</h2>
-          <div class="two-grid">
-            <article class="soft-card">
-              <div class="icon-badge">◎</div>
-              <h3>Misión</h3>
-              <p>Ayudar a empresas a evolucionar con tecnología accesible, proporcionando soluciones digitales que impulsen su crecimiento y optimicen sus procesos de negocio.</p>
-            </article>
-            <article class="soft-card">
-              <div class="icon-badge">◌</div>
-              <h3>Visión</h3>
-              <p>Ser la consultora líder en transformación digital para negocios en Latinoamérica, reconocida por su excelencia, innovación y compromiso con el éxito de sus clientes.</p>
-            </article>
-          </div>
-          <h3 class="section-subtitle">Nuestros Valores</h3>
-          <div class="values-grid">
-            <article class="value-card"><div>△</div><h4>Innovación</h4><p>Buscamos nuevas formas de resolver problemas y mejorar procesos.</p></article>
-            <article class="value-card"><div>◇</div><h4>Integridad</h4><p>Actuamos con honestidad, transparencia y ética en cada proyecto.</p></article>
-            <article class="value-card"><div>□</div><h4>Calidad</h4><p>Nos comprometemos a entregar soluciones de alta calidad y excelencia.</p></article>
-            <article class="value-card"><div>○</div><h4>Impacto</h4><p>Generamos resultados medibles y significativos para nuestros clientes.</p></article>
+      <section class="problem-section" aria-labelledby="problem-title">
+        <div class="container problem-grid">
+          <div class="problem-copy reveal">
+            <h2 id="problem-title">Las empresas no dejan de crecer por falta de ideas.</h2>
+            <p>Se detienen cuando sus procesos, sus herramientas y su tecnología dejan de trabajar en conjunto.</p>
           </div>
         </div>
       </section>
 
-      <section id="servicios" class="section" aria-labelledby="services-title">
+      <section id="metodo" class="method-section" aria-labelledby="method-title">
         <div class="container">
-          <h2 id="services-title" class="section-title">Nuestros Servicios</h2>
-          <p class="section-lead">Ofrecemos soluciones integrales para impulsar la transformación digital de tu empresa, desde software especializado hasta consultoría estratégica.</p>
-          <div class="services-grid">
-            <article class="service-card">
-              <div class="service-icon">▣</div>
-              <h3>COREM-Suite</h3>
-              <p>Solución modular de gestión empresarial que integra ERP y CRM para optimizar tus procesos de negocio.</p>
-              <ul><li>Gestor de inventario</li><li>Cotizador y POS</li><li>CRM y seguimiento de clientes</li><li>Dashboards y reportes</li></ul>
-              <a class="btn btn-primary full" href="http://www.corem-mx.org" target="_blank" rel="noopener noreferrer">Ver Más</a>
+          <div class="section-heading reveal">
+            <p class="eyebrow">Método DIGITEM-MX</p>
+            <h2 id="method-title">Un sistema para ordenar, conectar y escalar.</h2>
+            <p>El símbolo de DIGITEM-MX también es nuestra forma de entender el crecimiento tecnológico.</p>
+          </div>
+          <div class="method-grid">
+            <article class="method-card reveal delay-1">
+              <div class="method-icon triangle-icon" aria-hidden="true"></div>
+              <p class="method-label">Transforma</p>
+              <h3>COREM</h3>
+              <p>Ordena tu operación. Centraliza tu información. Recupera el control.</p>
             </article>
-            <article class="service-card featured-service">
-              <div class="service-icon">✦</div>
-              <h3>DIGITEM-MX Salud</h3>
-              <p>Landing pages SEO para profesionales de salud que quieren ser encontrados, transmitir confianza y recibir citas por WhatsApp.</p>
-              <ul><li>Landing SEO Pacientes</li><li>Paquetes Salud Pro y Max</li><li>SEO local y WhatsApp</li><li>Demos por especialidad</li></ul>
-              <a class="btn btn-primary full" href="/salud">Ver DIGITEM-MX Salud</a>
+            <article class="method-card reveal delay-2">
+              <div class="method-icon bar-icon" aria-hidden="true"></div>
+              <p class="method-label">Conecta</p>
+              <h3>DIGITEM Salud</h3>
+              <p>Construye presencia. Genera confianza. Atrae oportunidades.</p>
             </article>
-            <article class="service-card">
-              <div class="service-icon">◈</div>
-              <h3>Servicios Digitales</h3>
-              <p>Soluciones creativas para fortalecer tu presencia digital y comunicar efectivamente tu marca.</p>
-              <ul><li>Branding e identidad</li><li>Diseño web y landing pages</li><li>Papelería creativa</li><li>Material promocional</li></ul>
-              <a class="btn btn-primary full" href={infoUrl}>Solicitar Información</a>
-            </article>
-            <article class="service-card">
-              <div class="service-icon">⌁</div>
-              <h3>Consultoría Digital</h3>
-              <p>Asesoría estratégica para optimizar tus procesos y aprovechar mejor las tecnologías digitales.</p>
-              <ul><li>Diagnóstico digital</li><li>Sesiones estratégicas</li><li>Automatización de procesos</li><li>Implementación de herramientas</li></ul>
-              <a class="btn btn-primary full" href={diagnosisUrl}>Solicitar Diagnóstico</a>
+            <article class="method-card reveal delay-3">
+              <div class="method-icon circle-icon" aria-hidden="true"></div>
+              <p class="method-label">Evoluciona</p>
+              <h3>DIGITEM IT</h3>
+              <p>Fortalece tu infraestructura. Optimiza tus equipos. Prepárate para crecer.</p>
             </article>
           </div>
         </div>
       </section>
 
-      <section id="socios" class="section section-alt" aria-labelledby="partners-title">
+      <section id="soluciones" class="solutions-section" aria-labelledby="solutions-title">
         <div class="container">
-          <h2 id="partners-title" class="section-title">Socios Comerciales</h2>
-          <p class="section-lead">Colaboramos con empresas líderes para ofrecer soluciones integrales y de calidad.</p>
-          <div class="partners-grid">
-            <a href="https://integrity-mexico.com" target="_blank" rel="noopener noreferrer"><span>I</span><strong>Integrity México</strong></a>
-            <a href="https://grupogabssa.com" target="_blank" rel="noopener noreferrer"><span>G</span><strong>Grupo Gabssa</strong></a>
-            <a href="https://ndm4.com" target="_blank" rel="noopener noreferrer"><span>N</span><strong>NDM4</strong></a>
-            <a href="https://inner-lux.com.mx" target="_blank" rel="noopener noreferrer"><span>I</span><strong>Inner-Lux</strong></a>
-            <a href="https://katorce-espacios.com" target="_blank" rel="noopener noreferrer"><span>K</span><strong>Katorce Espacios</strong></a>
+          <div class="section-heading reveal">
+            <p class="eyebrow">Arquitectura comercial</p>
+            <h2 id="solutions-title">Nuestras soluciones</h2>
+            <p>Tres líneas estratégicas para ayudar a las empresas a ordenar, crecer y evolucionar con tecnología.</p>
+          </div>
+          <div class="solutions-grid">
+            <article class="solution-card reveal delay-1">
+              <div class="solution-top"><span>01</span><div class="solution-shape triangle-small"></div></div>
+              <p class="solution-category">Gestión operativa</p>
+              <h3>COREM</h3>
+              <h4>Tu empresa. En orden.</h4>
+              <p>Software empresarial modular diseñado para centralizar procesos, ordenar operaciones y escalar con tu negocio.</p>
+              <ul>
+                <li>ERP / CRM modular</li>
+                <li>Finanzas, ventas, clientes e inventario</li>
+                <li>Adaptable a distintos giros</li>
+                <li>Enfoque SaaS escalable</li>
+              </ul>
+              <a href="http://www.corem-mx.org" target="_blank" rel="noopener noreferrer">Conocer COREM <span aria-hidden="true">→</span></a>
+            </article>
+            <article class="solution-card reveal delay-2">
+              <div class="solution-top"><span>02</span><div class="solution-shape bar-small"></div></div>
+              <p class="solution-category">Posicionamiento sectorial</p>
+              <h3>DIGITEM Salud</h3>
+              <h4>Soluciones digitales para el sector salud</h4>
+              <p>Servicios específicos para profesionales y negocios de salud que buscan visibilidad, captación y estructura digital.</p>
+              <ul>
+                <li>Landing pages SEO</li>
+                <li>Estrategia digital para clínicas y especialistas</li>
+                <li>Captación de pacientes</li>
+                <li>Presencia profesional y conversión</li>
+              </ul>
+              <a href="/salud">Ver soluciones de Salud <span aria-hidden="true">→</span></a>
+            </article>
+            <article class="solution-card reveal delay-3">
+              <div class="solution-top"><span>03</span><div class="solution-shape circle-small"></div></div>
+              <p class="solution-category">Infraestructura y soporte</p>
+              <h3>DIGITEM IT</h3>
+              <h4>Infraestructura, soporte y evolución tecnológica</h4>
+              <p>Acompañamiento técnico integral para empresas que necesitan operar mejor, optimizar equipos y fortalecer su entorno tecnológico.</p>
+              <ul>
+                <li>Diagnóstico tecnológico</li>
+                <li>Soporte y mantenimiento</li>
+                <li>Reparación y mejora de equipos</li>
+                <li>Infraestructura e implementación</li>
+              </ul>
+              <a href={itUrl}>Explorar DIGITEM IT <span aria-hidden="true">→</span></a>
+            </article>
           </div>
         </div>
       </section>
 
-      <section id="contacto" class="section" aria-labelledby="contact-title">
-        <div class="container">
-          <h2 id="contact-title" class="section-title">Contacto</h2>
-          <p class="section-lead">Estamos listos para ayudarte a transformar digitalmente tu negocio. Contáctanos y comencemos a trabajar juntos.</p>
-          <div class="contact-grid">
-            <form class="contact-form" id="contact-form">
-              <h3>Envíanos un mensaje</h3>
-              <label>Nombre completo<input name="name" type="text" required /></label>
-              <label>Correo electrónico<input name="email" type="email" required /></label>
-              <label>Número de teléfono<input name="phone" type="tel" required /></label>
-              <label>Servicio de interés
-                <select name="service" required>
-                  <option value="">Selecciona un servicio</option>
-                  <option value="DIGITEM-MX Salud">DIGITEM-MX Salud</option>
-                  <option value="COREM-Suite">COREM-Suite</option>
-                  <option value="Servicios Digitales">Servicios Digitales</option>
-                  <option value="Consultoría Digital">Consultoría Digital</option>
+      <section class="position-section" aria-labelledby="position-title">
+        <div class="container position-shell reveal">
+          <p class="eyebrow">Nuestra postura</p>
+          <h2 id="position-title">No vendemos solo servicios.</h2>
+          <p>Construimos activos digitales, soluciones verticales y entornos tecnológicos listos para crecer contigo.</p>
+        </div>
+      </section>
+
+      <section id="contacto" class="final-cta" aria-labelledby="cta-title">
+        <div class="container cta-shell reveal">
+          <div class="cta-copy">
+            <p class="eyebrow">Diagnóstico estratégico</p>
+            <h2 id="cta-title">¿Listo para ordenar la siguiente etapa de tu empresa?</h2>
+            <p>Cuéntanos brevemente qué necesitas. Con esa información abriremos WhatsApp con un mensaje más claro para iniciar tu diagnóstico.</p>
+          </div>
+          <form class="diagnosis-form" id="diagnosis-form">
+            <div class="form-row">
+              <label>Nombre
+                <input id="form-name" name="name" type="text" placeholder="Tu nombre" required />
+              </label>
+              <label>Empresa o proyecto
+                <input id="form-company" name="company" type="text" placeholder="Nombre de tu empresa" required />
+              </label>
+            </div>
+            <div class="form-row">
+              <label>Contacto
+                <input id="form-contact" name="contact" type="text" placeholder="WhatsApp o correo" required />
+              </label>
+              <label>Área de interés
+                <select id="form-interest" name="interest" required>
+                  <option value="">Selecciona una opción</option>
+                  <option value="COREM">COREM · Orden operativo</option>
+                  <option value="DIGITEM Salud">DIGITEM Salud · Captación y presencia</option>
+                  <option value="DIGITEM IT">DIGITEM IT · Infraestructura y soporte</option>
+                  <option value="Diagnóstico integral DIGITEM-MX">Diagnóstico integral DIGITEM-MX</option>
                 </select>
               </label>
-              <label>Mensaje<textarea name="message" rows="4" required></textarea></label>
-              <button class="btn btn-primary full" type="submit">Solicitar Consulta Digital</button>
-            </form>
-            <aside class="contact-info">
-              <h3>Información de contacto</h3>
-              <div class="info-item"><span>☎</span><div><h4>Teléfono</h4><p>+52 55 2297 1545</p><small>Lunes a viernes, 9:00 - 18:00</small></div></div>
-              <div class="info-item"><span>✉</span><div><h4>Correo electrónico</h4><p>emma_herrera@digitem-mx.com</p><small>Respondemos en menos de 24 horas</small></div></div>
-              <div class="info-item"><span>⌖</span><div><h4>Ubicación</h4><p>Ciudad de México, México</p><small>También trabajamos de forma remota</small></div></div>
-              <div class="social-row">
-                <a href="https://www.instagram.com/digitem.mx/" target="_blank" rel="noopener noreferrer">Instagram</a>
-                <a href={consultUrl}>WhatsApp</a>
-                <a href="mailto:emma_herrera@digitem-mx.com">Correo</a>
-              </div>
-            </aside>
-          </div>
+            </div>
+            <label>Contexto breve
+              <textarea id="form-context" name="context" rows="4" placeholder="Ej. Quiero ordenar mis procesos, mejorar mi presencia digital o revisar mi infraestructura tecnológica." required></textarea>
+            </label>
+            <button class="btn btn-primary full" type="submit">Enviar diagnóstico por WhatsApp</button>
+          </form>
         </div>
       </section>
     </main>
 
     <footer class="matrix-footer">
-      <div class="container footer-grid">
-        <div><a class="matrix-logo" href="/"><span>DIGITEM-MX</span></a><p>Soluciones digitales para impulsar el crecimiento de tu empresa en la era digital.</p></div>
-        <div><h4>Enlaces rápidos</h4><a href="#inicio">Inicio</a><a href="#nosotros">Nosotros</a><a href="#servicios">Servicios</a><a href="#contacto">Contacto</a></div>
-        <div><h4>Servicios</h4><a href="/salud">DIGITEM-MX Salud</a><a href="http://www.corem-mx.org" target="_blank" rel="noopener noreferrer">COREM-Suite</a><a href="#servicios">Servicios Digitales</a><a href="#servicios">Consultoría Digital</a></div>
-        <div><h4>Legal</h4><a href="#contacto">Aviso de Privacidad</a><a href="#contacto">Términos y Condiciones</a></div>
+      <div class="container footer-inner">
+        <a class="brand-lockup" href="/" aria-label="DIGITEM-MX">
+          <span class="brand-symbol" aria-hidden="true">
+            <span class="mini-triangle"></span>
+            <span class="mini-bar"></span>
+            <span class="mini-circle"></span>
+          </span>
+          <span class="brand-word">DIGITEM-MX</span>
+        </a>
+        <p>Transforma. Conecta. Evoluciona.</p>
+        <nav aria-label="Footer DIGITEM-MX">
+          <a href="#metodo">Método</a>
+          <a href="#soluciones">Soluciones</a>
+          <a href="#contacto">Contacto</a>
+        </nav>
       </div>
       <div class="copyright">© 2026 DIGITEM-MX. Todos los derechos reservados.</div>
     </footer>
+
+    <dialog class="agenda-modal" id="agenda-modal" aria-labelledby="agenda-title">
+      <form class="agenda-card" method="dialog">
+        <button class="agenda-close" type="button" aria-label="Cerrar agenda" data-close-agenda>×</button>
+        <p class="agenda-kicker">Agenda DIGITEM-MX</p>
+        <h2 id="agenda-title">Elige fecha y horario para tu diagnóstico.</h2>
+        <p class="agenda-copy">Selecciona un espacio disponible de lunes a domingo entre 9:00 a.m. y 9:00 p.m. Al enviar, abriremos WhatsApp con el mensaje listo para confirmar.</p>
+        <label>Fecha de consulta
+          <input id="agenda-date" name="date" type="date" required />
+        </label>
+        <label>Horario
+          <select id="agenda-time" name="time" required>
+            <option value="">Selecciona un horario</option>
+            <option value="09:00">09:00 a.m.</option><option value="10:00">10:00 a.m.</option><option value="11:00">11:00 a.m.</option><option value="12:00">12:00 p.m.</option><option value="13:00">01:00 p.m.</option><option value="14:00">02:00 p.m.</option><option value="15:00">03:00 p.m.</option><option value="16:00">04:00 p.m.</option><option value="17:00">05:00 p.m.</option><option value="18:00">06:00 p.m.</option><option value="19:00">07:00 p.m.</option><option value="20:00">08:00 p.m.</option><option value="21:00">09:00 p.m.</option>
+          </select>
+        </label>
+        <button class="btn btn-primary full" type="button" id="agenda-send">Enviar por WhatsApp</button>
+        <small>Horario permitido: lunes a domingo de 9:00 a.m. a 9:00 p.m.</small>
+      </form>
+    </dialog>
 
     <script is:inline>
       const toggle = document.querySelector('.menu-toggle');
@@ -202,20 +339,293 @@ const diagnosisUrl = `${whatsappBase}?text=${diagnosisMessage}`;
           toggle?.setAttribute('aria-expanded', 'false');
         });
       });
-      const form = document.querySelector('#contact-form');
-      form?.addEventListener('submit', (event) => {
-        event.preventDefault();
-        const data = new FormData(form);
-        const message = `Consulta Digital DIGITEM-MX\n\nNombre: ${data.get('name')}\nEmail: ${data.get('email')}\nTeléfono: ${data.get('phone')}\nServicio: ${data.get('service')}\nMensaje: ${data.get('message')}`;
-        window.open(`https://wa.me/5522971545?text=${encodeURIComponent(message)}`, '_blank');
-      });
-    </script>
 
-    <style>
-      :root{--orange:#E07422;--blue:#11999E;--gray-light:#F0F0F0;--gray-dark:#333333;--white:#fff;--ink:#0f1e28;--shadow:0 20px 60px rgba(15,30,40,.10)}
-      *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:Lato,Montserrat,system-ui,sans-serif;color:var(--gray-dark);background:#fff}a{color:inherit;text-decoration:none}h1,h2,h3,h4{font-family:Montserrat,system-ui,sans-serif;color:var(--blue);margin:0}p{line-height:1.7}.container{width:min(1180px,calc(100% - 32px));margin-inline:auto}.matrix-header{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(255,255,255,.84);backdrop-filter:blur(18px);border-bottom:1px solid rgba(17,153,158,.10);box-shadow:0 10px 30px rgba(15,30,40,.05)}.header-inner{height:76px;display:flex;align-items:center;justify-content:space-between}.matrix-logo{font-family:Montserrat,sans-serif;font-weight:900;font-size:clamp(1.1rem,2vw,1.45rem);letter-spacing:.02em;background:linear-gradient(90deg,var(--blue),var(--orange));-webkit-background-clip:text;background-clip:text;color:transparent}.matrix-nav{display:flex;align-items:center;gap:22px;font-family:Montserrat,sans-serif;font-weight:700;font-size:.9rem}.matrix-nav a:not(.nav-button):not(.login-button){color:#344;transition:.25s}.matrix-nav a:hover{color:var(--blue)}.nav-button,.login-button{padding:.65rem 1rem;border-radius:10px;font-weight:800;font-size:.84rem}.nav-button{background:var(--orange);color:white}.login-button{border:1px solid rgba(17,153,158,.25);color:var(--blue);background:white}.menu-toggle{display:none;background:white;border:1px solid #d9e5e6;border-radius:12px;padding:.55rem .75rem;font-size:1.2rem}.matrix-hero{padding:150px 0 92px;background:linear-gradient(135deg,#fff 0%,#f0f7f7 45%,#fff 100%);overflow:hidden}.hero-grid{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:center}.hero-copy h1{font-size:clamp(3.4rem,7vw,5.8rem);line-height:.95;letter-spacing:-.055em;margin-bottom:28px}.hero-copy p{font-size:1.22rem;max-width:560px;margin-bottom:32px}.hero-actions{display:flex;gap:16px;flex-wrap:wrap}.btn{display:inline-flex;align-items:center;justify-content:center;border-radius:999px;padding:.95rem 1.35rem;font-family:Montserrat,sans-serif;font-weight:800;transition:.25s ease;border:1px solid transparent}.btn:hover{transform:translateY(-2px);box-shadow:0 14px 28px rgba(15,30,40,.10)}.btn-primary{background:var(--orange);color:white}.btn-secondary{background:rgba(255,255,255,.85);color:var(--blue);border-color:rgba(17,153,158,.2);backdrop-filter:blur(12px)}.hero-art{position:relative;min-height:420px;display:grid;place-items:center}.art-bg{position:absolute;width:min(440px,90%);aspect-ratio:1;background:rgba(17,153,158,.10);border-radius:999px;animation:pulse 4s ease-in-out infinite}.brand-shapes{position:relative;display:flex;align-items:center;gap:16px}.shape-triangle{width:120px;height:120px;background:var(--blue);clip-path:polygon(0 100%,50% 0,100% 100%);transform:rotate(90deg)}.shape-bar{width:22px;height:120px;background:rgba(17,153,158,.28)}.shape-circle{width:120px;height:120px;border-radius:50%;background:rgba(224,116,34,.86)}.section{padding:92px 0}.section-alt{background:var(--gray-light)}.section-title{text-align:center;font-size:clamp(2rem,4vw,3rem);margin-bottom:18px}.section-subtitle{text-align:center;font-size:1.6rem;margin:48px 0 24px}.section-lead{text-align:center;font-size:1.12rem;max-width:760px;margin:0 auto 54px}.two-grid,.contact-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:32px}.soft-card,.service-card,.contact-form,.contact-info{background:white;border:1px solid rgba(17,153,158,.12);border-radius:22px;padding:32px;box-shadow:var(--shadow)}.soft-card h3,.service-card h3,.contact-form h3,.contact-info h3{font-size:1.6rem;margin-bottom:14px}.icon-badge,.service-icon{width:64px;height:64px;border-radius:50%;display:grid;place-items:center;background:rgba(17,153,158,.10);color:var(--blue);font-size:2rem;margin-bottom:18px}.values-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}.value-card{background:white;border-radius:18px;padding:24px;text-align:center;box-shadow:0 10px 30px rgba(15,30,40,.06)}.value-card div{width:56px;height:56px;margin:0 auto 14px;border-radius:50%;background:rgba(17,153,158,.10);color:var(--blue);display:grid;place-items:center;font-size:1.8rem}.services-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}.service-card{display:flex;flex-direction:column}.featured-service{border-color:rgba(224,116,34,.35);background:linear-gradient(180deg,#fff,#fff9f4)}.service-card ul{padding:0;margin:8px 0 24px;list-style:none}.service-card li{margin:.55rem 0;padding-left:1.1rem;position:relative}.service-card li:before{content:'•';position:absolute;left:0;color:var(--orange);font-weight:900}.full{width:100%;margin-top:auto}.partners-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:20px}.partners-grid a{background:white;border-radius:18px;padding:22px;text-align:center;box-shadow:0 10px 30px rgba(15,30,40,.06);transition:.25s}.partners-grid a:hover{transform:translateY(-4px);box-shadow:var(--shadow)}.partners-grid span{width:72px;height:72px;border-radius:50%;display:grid;place-items:center;background:rgba(17,153,158,.10);color:var(--blue);font-family:Montserrat,sans-serif;font-weight:900;font-size:1.5rem;margin:0 auto 12px}.contact-form label{display:block;font-weight:700;margin-bottom:14px}.contact-form input,.contact-form select,.contact-form textarea{width:100%;margin-top:8px;border:1px solid #dde7e8;border-radius:14px;padding:.85rem 1rem;font:inherit}.contact-form input:focus,.contact-form select:focus,.contact-form textarea:focus{outline:2px solid rgba(17,153,158,.25);border-color:var(--blue)}.contact-info{background:#f5f7f7}.info-item{display:flex;gap:16px;margin:26px 0}.info-item>span{width:48px;height:48px;border-radius:50%;display:grid;place-items:center;background:rgba(17,153,158,.10);color:var(--blue);flex:0 0 auto}.info-item h4{margin:.1rem 0 .25rem;color:var(--ink)}.info-item p{margin:0}.info-item small{opacity:.7}.social-row{display:flex;flex-wrap:wrap;gap:10px;margin-top:32px}.social-row a{padding:.65rem 1rem;border-radius:999px;background:var(--blue);color:white;font-family:Montserrat,sans-serif;font-weight:800;font-size:.85rem}.matrix-footer{background:var(--gray-light);padding:56px 0 24px}.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:28px}.footer-grid h4{margin-bottom:14px}.footer-grid a{display:block;margin:.55rem 0;color:#4a5558}.footer-grid a:hover{color:var(--blue)}.copyright{text-align:center;border-top:1px solid #d5dede;margin-top:38px;padding-top:22px;color:#687275;font-size:.9rem}.fade-in{animation:fadeIn .65s ease}.slide-up{animation:slideUp .7s ease}@keyframes fadeIn{from{opacity:0}to{opacity:1}}@keyframes slideUp{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}@keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.03)}}
-      @media (max-width:980px){.matrix-nav{display:none;position:absolute;top:76px;left:16px;right:16px;flex-direction:column;align-items:stretch;background:rgba(255,255,255,.95);backdrop-filter:blur(18px);border:1px solid rgba(17,153,158,.12);border-radius:20px;padding:18px;box-shadow:var(--shadow)}.matrix-nav.is-open{display:flex}.menu-toggle{display:block}.hero-grid,.two-grid,.contact-grid{grid-template-columns:1fr}.matrix-hero{padding:124px 0 70px}.hero-copy h1{font-size:clamp(2.9rem,15vw,4.8rem)}.hero-art{min-height:300px}.values-grid,.services-grid{grid-template-columns:repeat(2,1fr)}.partners-grid{grid-template-columns:repeat(2,1fr)}.footer-grid{grid-template-columns:1fr 1fr}.shape-triangle,.shape-circle{width:88px;height:88px}.shape-bar{height:88px}.section{padding:70px 0}}
-      @media (max-width:620px){.container{width:min(100% - 24px,1180px)}.header-inner{height:68px}.matrix-hero{padding:112px 0 58px}.hero-copy h1{font-size:3.15rem}.hero-copy p{font-size:1.05rem}.hero-actions .btn{width:100%}.values-grid,.services-grid,.partners-grid,.footer-grid{grid-template-columns:1fr}.soft-card,.service-card,.contact-form,.contact-info{padding:24px}.hero-art{min-height:220px}.art-bg{width:260px}.section-title{text-align:left}.section-lead{text-align:left;margin-left:0}.shape-triangle,.shape-circle{width:72px;height:72px}.shape-bar{height:72px;width:14px}}
-    </style>
+      const agendaModal = document.getElementById('agenda-modal');
+      const dateInput = document.getElementById('agenda-date');
+      const timeInput = document.getElementById('agenda-time');
+      const today = new Date();
+      const yyyy = today.getFullYear();
+      const mm = String(today.getMonth() + 1).padStart(2, '0');
+      const dd = String(today.getDate()).padStart(2, '0');
+      if (dateInput) dateInput.min = `${yyyy}-${mm}-${dd}`;
+      document.querySelectorAll('[data-open-agenda]').forEach((button) => {
+        button.addEventListener('click', () => agendaModal?.showModal());
+      });
+      document.querySelector('[data-close-agenda]')?.addEventListener('click', () => agendaModal?.close());
+      document.getElementById('agenda-send')?.addEventListener('click', () => {
+        const date = dateInput?.value;
+        const time = timeInput?.value;
+        if (!date || !time) {
+          alert('Selecciona una fecha y un horario para continuar.');
+          return;
+        }
+        const msg = encodeURIComponent(`Buena tarde, equipo de DIGITEM-MX. Me interesa agendar un diagnóstico estratégico para mi empresa el día ${date} a las ${time}.`);
+        window.open(`https://wa.me/5522971545?text=${msg}`, '_blank');
+        agendaModal?.close();
+      });
+
+      document.getElementById('diagnosis-form')?.addEventListener('submit', (event) => {
+        event.preventDefault();
+        const name = document.getElementById('form-name')?.value?.trim();
+        const company = document.getElementById('form-company')?.value?.trim();
+        const contact = document.getElementById('form-contact')?.value?.trim();
+        const interest = document.getElementById('form-interest')?.value;
+        const context = document.getElementById('form-context')?.value?.trim();
+        if (!name || !company || !contact || !interest || !context) {
+          alert('Completa los campos del diagnóstico para continuar.');
+          return;
+        }
+        const msg = encodeURIComponent(`Buena tarde, equipo de DIGITEM-MX. Me interesa solicitar un diagnóstico estratégico.
+
+Nombre: ${name}
+Empresa/proyecto: ${company}
+Contacto: ${contact}
+Área de interés: ${interest}
+Contexto: ${context}`);
+        window.open(`https://wa.me/5522971545?text=${msg}`, '_blank');
+      });
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) entry.target.classList.add('is-visible');
+        });
+      }, { threshold: 0.16 });
+      document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
+    </script>
   </body>
 </html>
+
+<style>
+  :root {
+    --orange: #E07422;
+    --teal: #11999E;
+    --teal-soft: #dfeff0;
+    --ink: #112635;
+    --muted: #66737c;
+    --paper: #ffffff;
+    --mist: #f5f8f8;
+    --line: rgba(17, 153, 158, 0.18);
+    --shadow: 0 30px 90px rgba(17, 38, 53, 0.12);
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    font-family: 'Montserrat', system-ui, sans-serif;
+    color: var(--ink);
+    background: var(--paper);
+    overflow-x: hidden;
+  }
+  a { color: inherit; text-decoration: none; }
+  .container { width: min(1180px, calc(100% - 40px)); margin: 0 auto; }
+
+  .matrix-header {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: rgba(255,255,255,.82);
+    backdrop-filter: blur(18px);
+    border-bottom: 1px solid rgba(17, 38, 53, .06);
+  }
+  .header-inner { min-height: 76px; display: flex; align-items: center; justify-content: space-between; gap: 22px; }
+  .brand-lockup { display: inline-flex; align-items: center; gap: 13px; font-weight: 900; letter-spacing: -.035em; }
+  .brand-word {
+    font-size: 1.35rem;
+    background: linear-gradient(90deg, #11999E 0%, #1d9a9c 24%, #728670 50%, #b07839 75%, #E07422 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  .brand-symbol { display: inline-flex; align-items: center; gap: 5px; transform: translateY(1px); }
+  .mini-triangle { width: 0; height: 0; border-left: 14px solid transparent; border-right: 14px solid transparent; border-bottom: 28px solid var(--teal); }
+  .mini-bar { width: 7px; height: 28px; background: rgba(17,153,158,.35); }
+  .mini-circle { width: 28px; height: 28px; border-radius: 50%; background: var(--orange); }
+
+  .matrix-nav { display: flex; align-items: center; gap: 24px; font-weight: 800; font-size: .9rem; color: rgba(17,38,53,.78); }
+  .nav-item { position: relative; }
+  .nav-link, .matrix-nav > a { display: inline-flex; align-items: center; min-height: 44px; transition: color .62s ease, opacity .62s ease; }
+  .nav-link:hover, .nav-item:focus-within .nav-link, .matrix-nav > a:hover { color: var(--teal); }
+  .apple-panel {
+    position: absolute;
+    top: calc(100% + 12px);
+    left: 50%;
+    width: 310px;
+    padding: 18px;
+    border-radius: 24px;
+    background: rgba(255,255,255,.94);
+    border: 1px solid rgba(17,38,53,.08);
+    box-shadow: 0 28px 80px rgba(17,38,53,.14);
+    backdrop-filter: blur(22px);
+    transform: translate(-50%, 10px) scale(.98);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity .72s ease, transform .72s cubic-bezier(.22,1,.36,1), visibility .72s ease;
+  }
+  .nav-item:hover .apple-panel, .nav-item:focus-within .apple-panel {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translate(-50%, 0) scale(1);
+  }
+  .apple-panel::before { content: ''; position: absolute; inset: -14px 0 auto; height: 14px; }
+  .panel-kicker { margin: 0 0 10px; color: var(--teal); text-transform: uppercase; letter-spacing: .16em; font-size: .68rem; font-weight: 900; }
+  .apple-panel a { display: grid; gap: 4px; padding: 13px 12px; border-radius: 16px; transition: background .55s ease, color .55s ease, transform .55s ease; }
+  .apple-panel a:hover { background: #eef8f8; color: var(--ink); transform: translateX(3px); }
+  .apple-panel strong { color: var(--ink); font-size: .92rem; }
+  .apple-panel span { color: var(--muted); font-size: .82rem; line-height: 1.45; font-weight: 600; }
+  .contact-panel { right: 0; left: auto; transform: translate(0, 10px) scale(.98); }
+  .nav-item:hover .contact-panel, .nav-item:focus-within .contact-panel { transform: translate(0, 0) scale(1); }
+  .menu-toggle { display: none; border: 0; background: transparent; font-size: 1.5rem; color: var(--ink); }
+  .nav-button, .login-button {
+    border: 0;
+    border-radius: 999px;
+    padding: 12px 18px;
+    font: inherit;
+    cursor: pointer;
+  }
+  .nav-button { color: #fff; background: var(--orange); box-shadow: 0 14px 28px rgba(224,116,34,.22); }
+  .login-button { background: #eef8f8; color: var(--teal); }
+
+  .hero-section { min-height: min(820px, calc(100svh - 76px)); display: grid; align-items: center; background: radial-gradient(circle at 70% 20%, rgba(17,153,158,.12), transparent 30%), linear-gradient(180deg, #fff, #f8fbfb); }
+  .hero-shell { display: grid; grid-template-columns: minmax(0, 560px) minmax(300px, 1fr); gap: clamp(22px, 4vw, 54px); align-items: center; padding: clamp(30px, 4.8vw, 62px) 0; }
+  .eyebrow { margin: 0 0 18px; text-transform: uppercase; letter-spacing: .22em; color: var(--teal); font-weight: 900; font-size: .76rem; }
+  h1 { margin: 0; font-size: clamp(3.4rem, 6.25vw, 6.35rem); line-height: .88; letter-spacing: -.078em; color: var(--ink); max-width: 9.4ch; }
+  .hero-lead { margin: 22px 0 0; max-width: 540px; color: var(--muted); font-size: clamp(1.08rem, 1.65vw, 1.42rem); line-height: 1.55; font-weight: 500; }
+  .hero-actions { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 30px; }
+  .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; border: 0; border-radius: 999px; padding: 16px 24px; font-weight: 900; cursor: pointer; transition: transform .55s cubic-bezier(.22,1,.36,1), box-shadow .55s ease, border-color .55s ease, background .55s ease; font-family: inherit; }
+  .btn:hover { transform: translateY(-3px); }
+  .btn-primary { background: linear-gradient(135deg, var(--orange), #d45d0d); color: #fff; box-shadow: 0 18px 36px rgba(224,116,34,.24); }
+  .btn-secondary { background: rgba(255,255,255,.76); color: var(--ink); border: 1px solid rgba(17,38,53,.12); }
+  .full { width: 100%; }
+
+  .hero-mark { display: flex; justify-content: center; }
+  .mark-field { width: min(100%, 520px); aspect-ratio: 1.22; border-radius: 46% 54% 42% 58%; background: radial-gradient(circle at 50% 46%, rgba(255,255,255,.85), rgba(223,239,240,.8)); display: grid; place-items: center; box-shadow: inset 0 0 0 1px rgba(17,153,158,.06); }
+  .shape-system { display: flex; align-items: end; gap: clamp(18px, 3vw, 34px); }
+  .triangle { width: 0; height: 0; border-left: clamp(48px, 7.2vw, 96px) solid transparent; border-right: clamp(48px, 7.2vw, 96px) solid transparent; border-bottom: clamp(104px, 14vw, 210px) solid var(--teal); }
+  .bar { width: clamp(22px, 3vw, 46px); height: clamp(104px, 14vw, 210px); background: rgba(17,153,158,.28); }
+  .circle { width: clamp(104px, 14vw, 210px); height: clamp(104px, 14vw, 210px); border-radius: 50%; background: var(--orange); }
+
+  section { position: relative; }
+  .problem-section { padding: clamp(84px, 11vw, 150px) 0; background: #fff; }
+  .problem-grid { display: block; }
+  .section-number { display: none; }
+  .problem-copy h2 { margin: 0; max-width: 950px; font-size: clamp(3rem, 6vw, 6.2rem); line-height: .95; letter-spacing: -.07em; }
+  .problem-copy p { margin: 32px 0 0; max-width: 760px; color: var(--muted); font-size: clamp(1.25rem, 2.6vw, 2rem); line-height: 1.45; font-weight: 600; }
+
+  .method-section, .solutions-section { padding: clamp(70px, 9vw, 126px) 0; background: var(--mist); }
+  .solutions-section { background: linear-gradient(180deg, #fff, #f5f8f8); }
+  .section-heading { text-align: center; max-width: 820px; margin: 0 auto 46px; }
+  .section-heading h2 { margin: 0; font-size: clamp(2.55rem, 5.4vw, 5.8rem); line-height: .98; letter-spacing: -.065em; }
+  .section-heading p:last-child { margin: 20px auto 0; max-width: 680px; color: var(--muted); line-height: 1.7; font-size: 1.08rem; font-weight: 600; }
+
+  .method-grid, .solutions-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+  .method-card, .solution-card { background: rgba(255,255,255,.88); border: 1px solid var(--line); border-radius: 34px; padding: 34px; box-shadow: 0 20px 55px rgba(17,38,53,.06); transition: transform .45s ease, box-shadow .45s ease, border-color .45s ease; }
+  .method-card:hover, .solution-card:hover { transform: translateY(-8px); box-shadow: var(--shadow); border-color: rgba(17,153,158,.38); }
+  .method-icon { height: 58px; margin-bottom: 26px; }
+  .triangle-icon { width: 0; height: 0; border-left: 26px solid transparent; border-right: 26px solid transparent; border-bottom: 58px solid var(--teal); }
+  .bar-icon { width: 18px; background: rgba(17,153,158,.35); }
+  .circle-icon { width: 58px; border-radius: 50%; background: var(--orange); }
+  .method-label, .solution-category { margin: 0 0 10px; color: var(--orange); text-transform: uppercase; letter-spacing: .14em; font-size: .73rem; font-weight: 900; }
+  .method-card h3, .solution-card h3 { margin: 0; font-size: clamp(1.55rem, 2.5vw, 2.15rem); letter-spacing: -.045em; }
+  .method-card p:last-child, .solution-card p { color: var(--muted); line-height: 1.75; font-weight: 600; }
+
+  .solution-card:hover { background: linear-gradient(180deg, #ffffff, #eef9f9); }
+  .solution-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 26px; }
+  .solution-top span { width: 42px; height: 42px; border-radius: 50%; background: #eef8f8; color: var(--teal); display: grid; place-items: center; font-weight: 900; }
+  .solution-shape.triangle-small { width: 0; height: 0; border-left: 18px solid transparent; border-right: 18px solid transparent; border-bottom: 40px solid var(--teal); }
+  .solution-shape.bar-small { width: 12px; height: 40px; background: rgba(17,153,158,.35); }
+  .solution-shape.circle-small { width: 40px; height: 40px; border-radius: 50%; background: var(--orange); }
+  .solution-card h4 { margin: 8px 0 16px; color: var(--teal); font-size: 1rem; }
+  .solution-card ul { margin: 22px 0 28px; padding: 0; list-style: none; display: grid; gap: 12px; color: var(--ink); font-weight: 700; }
+  .solution-card li::before { content: '✓'; color: var(--teal); margin-right: 10px; }
+  .solution-card a { color: var(--teal); font-weight: 900; }
+
+  .position-section { padding: clamp(92px, 13vw, 180px) 0; background: #fff; }
+  .position-shell { min-height: 54svh; display: flex; flex-direction: column; justify-content: center; border-radius: 44px; padding: clamp(34px, 7vw, 86px); background: radial-gradient(circle at 82% 18%, rgba(224,116,34,.12), transparent 34%), radial-gradient(circle at 8% 88%, rgba(17,153,158,.14), transparent 35%), #f9fbfb; border: 1px solid rgba(17,153,158,.12); }
+  .position-shell h2 { margin: 0; font-size: clamp(3rem, 7vw, 7.4rem); line-height: .95; letter-spacing: -.075em; }
+  .position-shell p:last-child { margin: 30px 0 0; max-width: 860px; font-size: clamp(1.45rem, 3.2vw, 3rem); line-height: 1.18; letter-spacing: -.04em; font-weight: 800; color: var(--ink); }
+
+  .final-cta { padding: clamp(70px, 9vw, 120px) 0; background: linear-gradient(135deg, #0f2935, #123a42); color: #fff; }
+  .final-cta .eyebrow { color: #9de5e8; }
+  .cta-shell { display: grid; grid-template-columns: .9fr 1.1fr; align-items: center; gap: clamp(28px, 6vw, 72px); }
+  .cta-shell h2 { margin: 0; max-width: 720px; font-size: clamp(2.6rem, 5.2vw, 5.4rem); line-height: .98; letter-spacing: -.065em; }
+  .cta-copy p:last-child { max-width: 560px; margin: 22px 0 0; color: rgba(255,255,255,.72); line-height: 1.65; font-weight: 600; }
+  .diagnosis-form { display: grid; gap: 16px; padding: clamp(22px, 3vw, 34px); border-radius: 32px; background: rgba(255,255,255,.09); border: 1px solid rgba(255,255,255,.16); box-shadow: 0 28px 80px rgba(0,0,0,.16); backdrop-filter: blur(18px); }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .diagnosis-form label { display: grid; gap: 8px; color: rgba(255,255,255,.88); font-weight: 800; font-size: .88rem; }
+  .diagnosis-form input, .diagnosis-form select, .diagnosis-form textarea { width: 100%; border: 1px solid rgba(255,255,255,.16); border-radius: 16px; padding: 14px 15px; font: inherit; color: #fff; background: rgba(255,255,255,.10); outline: none; transition: border-color .45s ease, background .45s ease, box-shadow .45s ease; }
+  .diagnosis-form textarea { resize: vertical; min-height: 112px; }
+  .diagnosis-form input::placeholder, .diagnosis-form textarea::placeholder { color: rgba(255,255,255,.45); }
+  .diagnosis-form select option { color: var(--ink); background: #fff; }
+  .diagnosis-form input:focus, .diagnosis-form select:focus, .diagnosis-form textarea:focus { border-color: #9de5e8; background: rgba(255,255,255,.14); box-shadow: 0 0 0 4px rgba(157,229,232,.12); }
+
+  .matrix-footer { background: #fff; color: var(--muted); border-top: 1px solid rgba(17,38,53,.08); }
+  .footer-inner { padding: 36px 0; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+  .footer-inner p { margin: 0; font-weight: 700; }
+  .footer-inner nav { display: flex; gap: 22px; font-weight: 900; color: var(--teal); }
+  .copyright { border-top: 1px solid rgba(17,38,53,.06); text-align: center; padding: 18px; font-size: .9rem; color: #8a959b; }
+
+  .agenda-modal { border: 0; border-radius: 30px; padding: 0; width: min(540px, calc(100% - 28px)); box-shadow: 0 30px 90px rgba(0,0,0,.24); }
+  .agenda-modal::backdrop { background: rgba(9,20,39,.48); backdrop-filter: blur(6px); }
+  .agenda-card { position: relative; padding: 32px; display: grid; gap: 18px; }
+  .agenda-close { position: absolute; top: 16px; right: 18px; border: 0; background: transparent; font-size: 1.8rem; color: var(--muted); cursor: pointer; }
+  .agenda-kicker { margin: 0; color: var(--teal); letter-spacing: .16em; text-transform: uppercase; font-size: .72rem; font-weight: 900; }
+  .agenda-card h2 { margin: 0; font-size: clamp(1.8rem, 4vw, 2.7rem); line-height: 1; letter-spacing: -.06em; }
+  .agenda-copy, .agenda-card small { margin: 0; color: var(--muted); line-height: 1.6; font-weight: 600; }
+  .agenda-card label { display: grid; gap: 8px; font-weight: 800; color: var(--ink); }
+  .agenda-card input, .agenda-card select { width: 100%; border: 1px solid rgba(17,38,53,.12); border-radius: 16px; padding: 14px 16px; font: inherit; color: var(--ink); background: #f8fbfb; }
+
+  .reveal { opacity: 0; transform: translateY(26px); transition: opacity .9s ease, transform .9s cubic-bezier(.22,1,.36,1); }
+  .reveal.is-visible { opacity: 1; transform: translateY(0); }
+  .delay-1 { transition-delay: .08s; }
+  .delay-2 { transition-delay: .16s; }
+  .delay-3 { transition-delay: .24s; }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, .reveal { transition: none !important; animation: none !important; scroll-behavior: auto !important; opacity: 1 !important; transform: none !important; }
+  }
+
+
+  @media (min-width: 901px) and (max-width: 1120px) {
+    .hero-shell { grid-template-columns: minmax(0, 1fr) minmax(280px, .75fr); gap: 26px; }
+    h1 { font-size: clamp(3.5rem, 6vw, 5rem); }
+    .mark-field { width: min(100%, 430px); }
+  }
+
+  @media (max-width: 900px) {
+    .menu-toggle { display: block; }
+    .matrix-nav { position: fixed; top: 76px; left: 14px; right: 14px; display: none; flex-direction: column; align-items: stretch; gap: 8px; background: rgba(255,255,255,.96); border: 1px solid rgba(17,38,53,.08); border-radius: 24px; padding: 18px; box-shadow: var(--shadow); }
+    .matrix-nav.is-open { display: flex; }
+    .matrix-nav a, .matrix-nav button { text-align: center; justify-content: center; }
+    .nav-item { width: 100%; }
+    .nav-link { justify-content: center; width: 100%; }
+    .apple-panel { position: static; width: 100%; margin-top: 6px; opacity: 1; visibility: visible; pointer-events: auto; transform: none; display: none; box-shadow: none; background: #f7fbfb; }
+    .nav-item:focus-within .apple-panel, .nav-item:hover .apple-panel { display: grid; transform: none; }
+    .hero-shell { grid-template-columns: 1fr; gap: 26px; text-align: center; }
+    .hero-shell { padding-top: 34px; }
+    .hero-copy { display: grid; justify-items: center; }
+    .hero-mark { order: -1; }
+    .mark-field { width: min(100%, 430px); }
+    h1 { font-size: clamp(3.2rem, 14vw, 5rem); max-width: 9.4ch; }
+    .method-grid, .solutions-grid { grid-template-columns: 1fr; }
+    .cta-shell { grid-template-columns: 1fr; }
+    .footer-inner { flex-direction: column; align-items: flex-start; }
+    .footer-inner nav { flex-wrap: wrap; }
+  }
+
+  @media (max-width: 560px) {
+    .container { width: min(100% - 28px, 1180px); }
+    .brand-word { font-size: 1.05rem; }
+    .brand-symbol { transform: scale(.82); transform-origin: left center; }
+    .hero-section { min-height: auto; }
+    .hero-copy { text-align: center; }
+    .hero-actions { flex-direction: column; }
+    .btn { width: 100%; padding: 15px 18px; }
+    .section-heading { text-align: left; }
+    .method-card, .solution-card { padding: 26px; border-radius: 26px; }
+    .position-shell { border-radius: 30px; }
+    .form-row { grid-template-columns: 1fr; }
+  }
+</style>

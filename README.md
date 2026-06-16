@@ -1,23 +1,28 @@
-# SALUD-V3.6
+# DIGITEM-V1.0-RC.3
 
-Ajustes en `/demo/psicologia`:
+Ajustes de Release Candidate:
 
-- Hero con imagen más alineada a estética humanista, calma, plantas y consultorio cálido.
-- H1 y H2 ligeramente reducidos para optimizar el espacio vertical y evitar exceder 100vh en hero.
-- Hero más compacto en desktop y mobile sin perder presencia visual.
-- Se añadió pausa botánica antes del FAQ para reducir espacios en blanco y mantener continuidad visual entre secciones.
-- FAQ conserva estructura SEO y se integra mejor al ritmo visual.
-- ZIP limpio sin `node_modules`, `.astro` ni `dist`.
+- Hero optimizado para evitar encimados entre texto y símbolo en desktop, tablet y mobile.
+- Mejor uso de espacio vertical del hero.
+- SEO técnico mejorado en la Home:
+  - robots
+  - theme-color
+  - Open Graph extendido
+  - Twitter Card
+  - JSON-LD Organization
+  - JSON-LD WebSite
+  - JSON-LD Service para COREM, DIGITEM Salud y DIGITEM IT
+- Se conserva el navbar, método, soluciones, postura, diagnóstico estratégico y footer aprobados.
 
-## Desarrollo local
+## Ejecutar local
 
 ```bash
 npm install
 npm run dev
 ```
 
-Ruta principal:
+Abrir:
 
 ```text
-http://localhost:4321/demo/psicologia
+http://localhost:4321/
 ```
