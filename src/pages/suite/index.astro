@@ -1,0 +1,175 @@
+---
+const title = 'DIGITEM Suite | Dashboard interno';
+const description = 'Dashboard interno de DIGITEM-MX para manuales, scripts, clientes, seguimientos, plantillas y procesos.';
+const modules = [
+  { title: 'Manuales', desc: 'Procesos internos, entregables, lineamientos y documentación operativa.', count: '08', tag: 'Base de conocimiento' },
+  { title: 'Scripts', desc: 'Mensajes listos para copiar, prospectar, responder objeciones y dar seguimiento.', count: '12', tag: 'Ventas' },
+  { title: 'Clientes', desc: 'Registro de prospectos, estado comercial, vertical y siguiente acción.', count: '04', tag: 'CRM inicial' },
+  { title: 'Seguimientos', desc: 'Tareas pendientes, próximos contactos, notas de llamada y acuerdos.', count: '09', tag: 'Operación' },
+  { title: 'Plantillas', desc: 'Formatos para auditorías, propuestas, briefings, checklists y entregas.', count: '06', tag: 'Recursos' },
+  { title: 'Procesos', desc: 'Flujos internos para Salud, COREM, IT y futuras líneas DIGITEM-MX.', count: '05', tag: 'Sistema' },
+];
+---
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex, nofollow" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  </head>
+  <body>
+    <div class="suite-shell" data-suite-app>
+      <aside class="sidebar">
+        <a class="brand" href="/" aria-label="Volver a DIGITEM-MX">DIGITEM-MX</a>
+        <nav aria-label="Navegación Suite">
+          <a class="active" href="#dashboard">Dashboard</a>
+          <a href="#manuales">Manuales</a>
+          <a href="#scripts">Scripts</a>
+          <a href="#clientes">Clientes</a>
+          <a href="#seguimientos">Seguimientos</a>
+          <a href="#plantillas">Plantillas</a>
+          <a href="/suite/reset">Seguridad</a>
+        </nav>
+        <button id="logoutButton" type="button">Cerrar sesión</button>
+      </aside>
+
+      <main class="dashboard">
+        <header class="topbar">
+          <div>
+            <p class="eyebrow">DIGITEM Suite V1.2.3 · Supabase Auth</p>
+            <h1>Centro operativo interno.</h1>
+          </div>
+          <div class="user-pill"><span></span><strong id="userEmail">Cargando…</strong></div>
+        </header>
+
+        <section class="hero-card" id="dashboard">
+          <div>
+            <p class="eyebrow">Sistema interno</p>
+            <h2>Manualiza, ordena y escala sin perder contexto.</h2>
+            <p>
+              Esta primera versión centraliza la estructura de trabajo para que DIGITEM-MX pueda guardar conocimiento, scripts, plantillas y seguimiento comercial en un solo entorno.
+            </p>
+          </div>
+          <div class="status-card">
+            <span>Estado</span>
+            <strong>Acceso protegido</strong>
+            <p>Sesión validada con Supabase Auth. Base de datos en próxima fase. Restablecimiento disponible en Seguridad.</p>
+          </div>
+        </section>
+
+        <section class="module-grid" aria-label="Módulos DIGITEM Suite">
+          {modules.map((item) => (
+            <article class="module-card" id={item.title.toLowerCase()}>
+              <div class="module-top">
+                <span>{item.tag}</span>
+                <strong>{item.count}</strong>
+              </div>
+              <h3>{item.title}</h3>
+              <p>{item.desc}</p>
+              <button type="button" class="ghost-button">Abrir módulo</button>
+            </article>
+          ))}
+        </section>
+
+        <section class="workspace-preview">
+          <div>
+            <p class="eyebrow">Próxima fase</p>
+            <h2>Guardar, editar y consultar información real.</h2>
+            <p>
+              En V1.3 conectaremos Supabase para guardar manuales, scripts y notas con permisos por usuario. Esta base ya define la navegación, módulos y experiencia interna.
+            </p>
+          </div>
+          <ul>
+            <li><span></span>Login real con Supabase Auth</li>
+            <li><span></span>Restablecimiento de contraseña desde /suite/reset</li>
+            <li><span></span>Tablas para manuales, scripts y clientes</li>
+            <li><span></span>Historial de seguimientos y notas</li>
+            <li><span></span>Storage para documentos internos</li>
+          </ul>
+        </section>
+      </main>
+    </div>
+
+    <script type="module">
+      import { createClient } from 'https://esm.sh/@supabase/supabase-js@2';
+
+      const SUPABASE_URL = 'https://cppplmloraanbnseqnka.supabase.co';
+      const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImNwcHBsbWxvcmFhbmJuc2VxbmthIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODE3Mjk5MjYsImV4cCI6MjA5NzMwNTkyNn0.Nw80dCvEqd2jmYo5pR1oVSfpDV2EQxV46W0YKuoOPbE';
+      const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+      const { data } = await supabase.auth.getSession();
+      const session = data?.session;
+
+      if (!session) {
+        window.location.href = '/suite/login';
+      } else {
+        document.getElementById('userEmail').textContent = session.user?.email || 'usuario@digitem-mx.com';
+      }
+
+      document.getElementById('logoutButton')?.addEventListener('click', async () => {
+        await supabase.auth.signOut();
+        window.location.href = '/suite/login';
+      });
+    </script>
+  </body>
+</html>
+
+<style>
+  :root {
+    --orange: #E07422;
+    --teal: #11999E;
+    --light: #F0F0F0;
+    --dark: #333333;
+    --white: #FFFFFF;
+    --ink: #111827;
+    --muted: #6b7280;
+    --line: rgba(17, 24, 39, .11);
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { margin: 0; font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; color: var(--ink); background: #f7fafb; }
+  a { color: inherit; text-decoration: none; }
+  .suite-shell { min-height: 100svh; display: grid; grid-template-columns: 280px 1fr; }
+  .sidebar { position: sticky; top: 0; height: 100svh; display: flex; flex-direction: column; gap: 34px; padding: 28px 22px; border-right: 1px solid var(--line); background: rgba(255,255,255,.82); backdrop-filter: blur(22px); }
+  .brand { font-size: 1.35rem; font-weight: 850; letter-spacing: -.06em; background: linear-gradient(100deg, var(--teal), #176b78 46%, var(--orange)); -webkit-background-clip: text; background-clip: text; color: transparent; width: max-content; }
+  nav { display: grid; gap: 8px; }
+  nav a { padding: 12px 14px; border-radius: 14px; color: #53616a; font-weight: 720; transition: background .28s ease, color .28s ease, transform .28s ease; }
+  nav a:hover, nav a.active { background: rgba(17,153,158,.09); color: #126f78; transform: translateX(2px); }
+  .sidebar button { margin-top: auto; border: 1px solid var(--line); background: #fff; border-radius: 999px; padding: 13px 16px; font: inherit; font-weight: 800; cursor: pointer; color: #3d4a52; }
+  .dashboard { padding: 34px clamp(22px, 4vw, 56px) 70px; max-width: 1280px; width: 100%; margin: 0 auto; }
+  .topbar { display: flex; align-items: center; justify-content: space-between; gap: 18px; margin-bottom: 28px; }
+  .eyebrow { margin: 0 0 10px; color: var(--teal); text-transform: uppercase; letter-spacing: .16em; font-size: .74rem; font-weight: 850; }
+  h1, h2, h3, p { margin-top: 0; }
+  h1 { margin-bottom: 0; font-size: clamp(2.25rem, 4.8vw, 5rem); line-height: .94; letter-spacing: -.075em; }
+  .user-pill { display: inline-flex; align-items: center; gap: 10px; border: 1px solid var(--line); border-radius: 999px; padding: 10px 14px; background: #fff; box-shadow: 0 14px 34px rgba(17,24,39,.06); color: #45515a; }
+  .user-pill span { width: 9px; height: 9px; border-radius: 999px; background: var(--teal); box-shadow: 0 0 0 5px rgba(17,153,158,.12); }
+  .hero-card { display: grid; grid-template-columns: 1fr minmax(240px, 340px); gap: 24px; align-items: end; padding: clamp(28px, 5vw, 54px); border: 1px solid rgba(255,255,255,.75); border-radius: 34px; background: radial-gradient(circle at 16% 0%, rgba(17,153,158,.18), transparent 30%), linear-gradient(135deg, #fff, #eef8f8); box-shadow: 0 26px 70px rgba(17,24,39,.09); }
+  .hero-card h2 { margin-bottom: 18px; font-size: clamp(2rem, 4vw, 4.25rem); line-height: .96; letter-spacing: -.07em; max-width: 760px; }
+  .hero-card p:not(.eyebrow), .workspace-preview p { color: var(--muted); line-height: 1.75; max-width: 700px; }
+  .status-card { border: 1px solid rgba(17,153,158,.18); border-radius: 24px; background: rgba(255,255,255,.78); padding: 22px; box-shadow: 0 18px 46px rgba(17,24,39,.08); }
+  .status-card span { color: var(--muted); font-size: .78rem; font-weight: 850; text-transform: uppercase; letter-spacing: .12em; }
+  .status-card strong { display: block; margin: 10px 0 8px; font-size: 1.35rem; letter-spacing: -.04em; }
+  .status-card p { margin-bottom: 0; color: var(--muted); line-height: 1.65; }
+  .module-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 22px; }
+  .module-card { min-height: 255px; display: flex; flex-direction: column; border: 1px solid var(--line); border-radius: 28px; padding: 22px; background: #fff; box-shadow: 0 16px 44px rgba(17,24,39,.06); transition: transform .38s ease, box-shadow .38s ease, border-color .38s ease; }
+  .module-card:hover { transform: translateY(-5px); border-color: rgba(17,153,158,.28); box-shadow: 0 24px 70px rgba(17,24,39,.10); }
+  .module-top { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 36px; }
+  .module-top span { color: var(--teal); font-size: .72rem; text-transform: uppercase; letter-spacing: .12em; font-weight: 850; }
+  .module-top strong { color: rgba(17,24,39,.16); font-size: 2rem; letter-spacing: -.08em; }
+  .module-card h3 { margin-bottom: 10px; font-size: 1.55rem; letter-spacing: -.055em; }
+  .module-card p { color: var(--muted); line-height: 1.68; }
+  .ghost-button { margin-top: auto; align-self: flex-start; border: 1px solid var(--line); background: #fff; border-radius: 999px; padding: 11px 14px; font: inherit; font-size: .9rem; font-weight: 850; color: #25313a; cursor: pointer; }
+  .workspace-preview { display: grid; grid-template-columns: 1fr minmax(280px, 420px); gap: 24px; margin-top: 24px; border: 1px solid var(--line); border-radius: 30px; padding: clamp(24px, 4vw, 44px); background: #111827; color: #fff; }
+  .workspace-preview h2 { font-size: clamp(1.8rem, 3vw, 3.2rem); line-height: 1; letter-spacing: -.06em; }
+  .workspace-preview p { color: rgba(255,255,255,.68); }
+  .workspace-preview ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 14px; align-content: center; }
+  .workspace-preview li { display: flex; gap: 12px; align-items: center; color: rgba(255,255,255,.82); font-weight: 650; }
+  .workspace-preview li span { width: 9px; height: 9px; border-radius: 999px; background: var(--orange); box-shadow: 0 0 0 5px rgba(224,116,34,.18); flex: 0 0 auto; }
+  @media (max-width: 980px) { .suite-shell { grid-template-columns: 1fr; } .sidebar { position: relative; height: auto; border-right: 0; border-bottom: 1px solid var(--line); } nav { grid-template-columns: repeat(3, 1fr); } .sidebar button { margin-top: 0; } .module-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 680px) { .dashboard { padding: 22px 16px 48px; } .topbar, .hero-card, .workspace-preview { grid-template-columns: 1fr; } .topbar { align-items: flex-start; } .user-pill { max-width: 100%; overflow: hidden; } nav { grid-template-columns: 1fr 1fr; } .module-grid { grid-template-columns: 1fr; } .hero-card, .workspace-preview { border-radius: 24px; } }
+</style>
