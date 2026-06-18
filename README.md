@@ -1,17 +1,21 @@
-# DIGITEM-V1.2.4
+# DIGITEM-V1.3.3
 
-Actualización UX del acceso a DIGITEM Suite.
+Iteración de pulido comercial para DIGITEM Suite.
 
-- Login más minimalista y profesional.
-- Botón principal reducido a “Acceder”.
-- Layout desktop 65/35 para aprovechar mejor el espacio.
-- Columna visual de Suite Interna oculta en mobile.
-- Sin placeholder con correo específico.
-- Ruta de restablecimiento conservada en `/suite/reset`.
+## Cambios
 
-## Desarrollo local
+- Se mantiene el flujo: Prospección → Evaluación → Recomendación → Objeciones → Seguimiento.
+- Se agregan estados rápidos del pipeline: Pendiente, Aceptó, Evaluado, Recomendado, Seguimiento.
+- Se mejora el resumen generado para sonar más consultivo, profesional y listo para copiar.
+- Se mantienen botones de copiar en script, recomendación, objeciones y seguimientos.
+- El guardado sigue siendo local temporal; Supabase para datos reales queda para V1.4.
+
+## Ejecutar local
 
 ```bash
+cd ~/Downloads
+unzip -o "DIGITEM-V1.3.3.zip"
+cd "DIGITEM-V1.3.3"
 npm install
 npm run dev
 ```

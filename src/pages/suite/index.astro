@@ -1,13 +1,12 @@
 ---
-const title = 'DIGITEM Suite | Dashboard interno';
-const description = 'Dashboard interno de DIGITEM-MX para manuales, scripts, clientes, seguimientos, plantillas y procesos.';
-const modules = [
-  { title: 'Manuales', desc: 'Procesos internos, entregables, lineamientos y documentación operativa.', count: '08', tag: 'Base de conocimiento' },
-  { title: 'Scripts', desc: 'Mensajes listos para copiar, prospectar, responder objeciones y dar seguimiento.', count: '12', tag: 'Ventas' },
-  { title: 'Clientes', desc: 'Registro de prospectos, estado comercial, vertical y siguiente acción.', count: '04', tag: 'CRM inicial' },
-  { title: 'Seguimientos', desc: 'Tareas pendientes, próximos contactos, notas de llamada y acuerdos.', count: '09', tag: 'Operación' },
-  { title: 'Plantillas', desc: 'Formatos para auditorías, propuestas, briefings, checklists y entregas.', count: '06', tag: 'Recursos' },
-  { title: 'Procesos', desc: 'Flujos internos para Salud, COREM, IT y futuras líneas DIGITEM-MX.', count: '05', tag: 'Sistema' },
+const title = 'DIGITEM Suite | Pipeline comercial interno';
+const description = 'Dashboard interno de DIGITEM-MX para prospección, Perspectiva Digital Express, recomendaciones, objeciones y seguimiento.';
+const scoreBlocks = [
+  ['visibilityScore', 'Visibilidad local', '¿El paciente puede encontrar al especialista en Google buscando su servicio + zona?'],
+  ['trustScore', 'Confianza', '¿La presencia digital proyecta profesionalismo y cercanía antes del primer contacto?'],
+  ['clarityScore', 'Claridad del servicio', '¿El paciente entiende qué atiende, cómo ayuda y cuándo debe escribir?'],
+  ['conversionScore', 'Contacto por WhatsApp', '¿Es fácil escribirle sin buscar demasiado?'],
+  ['presenceScore', 'Presencia profesional', '¿Su presencia digital se siente actual, confiable y competitiva?'],
 ];
 ---
 <!doctype html>
@@ -20,79 +19,222 @@ const modules = [
     <meta name="description" content={description} />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
   </head>
   <body>
     <div class="suite-shell" data-suite-app>
       <aside class="sidebar">
-        <a class="brand" href="/" aria-label="Volver a DIGITEM-MX">DIGITEM-MX</a>
-        <nav aria-label="Navegación Suite">
-          <a class="active" href="#dashboard">Dashboard</a>
-          <a href="#manuales">Manuales</a>
-          <a href="#scripts">Scripts</a>
-          <a href="#clientes">Clientes</a>
-          <a href="#seguimientos">Seguimientos</a>
-          <a href="#plantillas">Plantillas</a>
-          <a href="/suite/reset">Seguridad</a>
+        <div class="sidebar-top">
+          <a class="brand" href="/" aria-label="Volver a DIGITEM-MX">DIGITEM-MX</a>
+          <p>Suite interna</p>
+        </div>
+
+        <nav aria-label="Pipeline comercial DIGITEM Salud">
+          <button class="nav-item active" type="button" data-panel="overview"><span>00</span>Dashboard</button>
+          <button class="nav-item" type="button" data-panel="prospecting"><span>01</span>Prospección</button>
+          <button class="nav-item" type="button" data-panel="evaluation"><span>02</span>Evaluación</button>
+          <button class="nav-item" type="button" data-panel="recommendation"><span>03</span>Recomendación</button>
+          <button class="nav-item" type="button" data-panel="objections"><span>04</span>Objeciones</button>
+          <button class="nav-item" type="button" data-panel="followup"><span>05</span>Seguimiento</button>
+          <a class="nav-item link-item" href="/suite/reset"><span>⚙</span>Seguridad</a>
         </nav>
-        <button id="logoutButton" type="button">Cerrar sesión</button>
+
+        <div class="sidebar-footer">
+          <small>Flujo comercial</small>
+          <strong>Prospectar → Evaluar → Recomendar → Responder → Dar seguimiento</strong>
+          <button id="logoutButton" type="button">Cerrar sesión</button>
+        </div>
       </aside>
 
-      <main class="dashboard">
+      <main class="workspace">
         <header class="topbar">
           <div>
-            <p class="eyebrow">DIGITEM Suite V1.2.3 · Supabase Auth</p>
+            <p class="eyebrow">DIGITEM Suite V1.3.3 · Pipeline Salud</p>
             <h1>Centro operativo interno.</h1>
           </div>
           <div class="user-pill"><span></span><strong id="userEmail">Cargando…</strong></div>
         </header>
 
-        <section class="hero-card" id="dashboard">
-          <div>
-            <p class="eyebrow">Sistema interno</p>
-            <h2>Manualiza, ordena y escala sin perder contexto.</h2>
-            <p>
-              Esta primera versión centraliza la estructura de trabajo para que DIGITEM-MX pueda guardar conocimiento, scripts, plantillas y seguimiento comercial en un solo entorno.
-            </p>
-          </div>
-          <div class="status-card">
-            <span>Estado</span>
-            <strong>Acceso protegido</strong>
-            <p>Sesión validada con Supabase Auth. Base de datos en próxima fase. Restablecimiento disponible en Seguridad.</p>
-          </div>
-        </section>
-
-        <section class="module-grid" aria-label="Módulos DIGITEM Suite">
-          {modules.map((item) => (
-            <article class="module-card" id={item.title.toLowerCase()}>
-              <div class="module-top">
-                <span>{item.tag}</span>
-                <strong>{item.count}</strong>
+        <section class="overview-panel" id="overviewPanel" data-panel-section="overview">
+          <div class="hero-card">
+            <div>
+              <p class="eyebrow">Sistema comercial repetible</p>
+              <h2>Convierte conversaciones en oportunidades sin perder el tono humano.</h2>
+              <p>
+                La Suite ordena el flujo completo de DIGITEM Salud: mensaje inicial, evaluación, recomendación, respuestas ante rechazos y seguimiento. Todo en una ruta clara para trabajar sin documentos dispersos.
+              </p>
+            </div>
+            <div class="status-card">
+              <span>Estado</span>
+              <strong>Pipeline listo</strong>
+              <p>Autenticación con Supabase activa. Los borradores se guardan localmente; el guardado en base de datos queda para la siguiente fase.</p>
+              <div class="phase-pills" aria-label="Estados comerciales sugeridos">
+                <button type="button" data-state="pendiente" class="phase-pill active">Pendiente</button>
+                <button type="button" data-state="acepto" class="phase-pill">Aceptó</button>
+                <button type="button" data-state="evaluado" class="phase-pill">Evaluado</button>
+                <button type="button" data-state="recomendado" class="phase-pill">Recomendado</button>
+                <button type="button" data-state="seguimiento" class="phase-pill">Seguimiento</button>
               </div>
-              <h3>{item.title}</h3>
-              <p>{item.desc}</p>
-              <button type="button" class="ghost-button">Abrir módulo</button>
-            </article>
-          ))}
-        </section>
-
-        <section class="workspace-preview">
-          <div>
-            <p class="eyebrow">Próxima fase</p>
-            <h2>Guardar, editar y consultar información real.</h2>
-            <p>
-              En V1.3 conectaremos Supabase para guardar manuales, scripts y notas con permisos por usuario. Esta base ya define la navegación, módulos y experiencia interna.
-            </p>
+            </div>
           </div>
-          <ul>
-            <li><span></span>Login real con Supabase Auth</li>
-            <li><span></span>Restablecimiento de contraseña desde /suite/reset</li>
-            <li><span></span>Tablas para manuales, scripts y clientes</li>
-            <li><span></span>Historial de seguimientos y notas</li>
-            <li><span></span>Storage para documentos internos</li>
-          </ul>
+
+          <div class="pipeline-board" aria-label="Pipeline comercial recomendado">
+            <article class="pipeline-card" data-open-panel="prospecting"><span>01</span><p>Prospección</p><h3>Mensaje inicial</h3><small>Inicia la conversación con una perspectiva externa, no con una venta.</small></article>
+            <article class="pipeline-card featured" data-open-panel="evaluation"><span>02</span><p>Evaluación</p><h3>Perspectiva Digital</h3><small>Califica visibilidad, confianza, claridad, WhatsApp y presencia profesional.</small></article>
+            <article class="pipeline-card" data-open-panel="recommendation"><span>03</span><p>Recomendación</p><h3>Resumen para enviar</h3><small>Convierte hallazgos en un mensaje breve, útil y accionable.</small></article>
+            <article class="pipeline-card" data-open-panel="objections"><span>04</span><p>Objeciones</p><h3>Respuestas suaves</h3><small>Agradece, objeta con respeto o deja la puerta abierta.</small></article>
+            <article class="pipeline-card" data-open-panel="followup"><span>05</span><p>Seguimiento</p><h3>Lead frío/tibio/caliente</h3><small>Define el siguiente mensaje según el nivel de interés.</small></article>
+          </div>
+
+          <section class="dashboard-insights">
+            <div>
+              <p class="eyebrow">Cómo usarlo</p>
+              <h2>Primero conversación. Después diagnóstico. Luego seguimiento.</h2>
+            </div>
+            <div class="insight-list">
+              <article><strong>1</strong><span>Envía el script de prospección autorizado y marca el lead como pendiente.</span></article>
+              <article><strong>2</strong><span>Si acepta, realiza la Perspectiva Digital Express con la guía interna.</span></article>
+              <article><strong>3</strong><span>Genera el resumen profesional, copia y envía la recomendación.</span></article>
+              <article><strong>4</strong><span>Si rechaza o duda, responde con objeciones suaves y define seguimiento.</span></article>
+            </div>
+          </section>
         </section>
       </main>
+
+      <aside class="right-panel" id="rightPanel" aria-live="polite" aria-hidden="true">
+        <div class="panel-shell">
+          <header class="panel-header">
+            <div>
+              <p class="eyebrow" id="panelEyebrow">Suite</p>
+              <h2 id="panelTitle">Selecciona un flujo</h2>
+            </div>
+            <button class="panel-close" id="closePanel" type="button" aria-label="Cerrar panel">×</button>
+          </header>
+
+          <div class="panel-body panel-content active" data-content="prospecting">
+            <div class="content-intro">
+              <p class="eyebrow">Paso 01 · Prospección</p>
+              <h3>Script inicial autorizado.</h3>
+              <p>Mensaje consultivo con emojis moderados para sonar humano, profesional y no invasivo.</p>
+            </div>
+            <div class="script-card" id="scriptText">
+              <p>Hola, buena tarde 👋</p>
+              <p>Soy Emma de DIGITEM-MX.</p>
+              <p>Estaba conociendo algunos perfiles y sitios web de profesionales de la salud en la zona y me encontré con tu trabajo. Me pareció muy interesante la forma en que presentas tus servicios.</p>
+              <p>Actualmente estamos ayudando a especialistas y consultorios a fortalecer su presencia digital para que las personas puedan entender mejor lo que hacen, generar confianza desde el primer contacto y encontrar una forma sencilla de comunicarse.</p>
+              <p>Me gustaría compartirte algunas observaciones y oportunidades de mejora que identifiqué al revisar tu presencia digital. Es un ejercicio breve, sin costo y sin compromiso; simplemente una perspectiva externa que puede ayudarte a detectar áreas de oportunidad.</p>
+              <p>🔎 Visibilidad en línea<br/>🤝 Confianza y presentación profesional<br/>💬 Facilidad de contacto para nuevos pacientes</p>
+              <p>Si te interesa, con gusto te comparto un resumen breve.</p>
+            </div>
+            <div class="template-actions">
+              <button class="primary-action" type="button" id="copyScriptButton">Copiar script</button>
+              <button class="secondary-action" type="button" data-panel="objections">Ver respuestas si rechaza</button>
+            </div>
+          </div>
+
+          <div class="panel-body panel-content" data-content="evaluation">
+            <div class="content-intro">
+              <p class="eyebrow">Paso 02 · Evaluación</p>
+              <h3>Perspectiva Digital Express.</h3>
+              <p>Se usa solo cuando el prospecto acepta recibir una revisión breve. Incluye una guía interna para mantener la conversación en 5 minutos.</p>
+            </div>
+
+            <details class="guide-box">
+              <summary>Guía interna de evaluación de 5 minutos</summary>
+              <div class="diagnostic-flow compact">
+                <article><span>01</span><h4>Lo que ya hace bien</h4><p>Inicia con una observación positiva y real.</p></article>
+                <article><span>02</span><h4>Oportunidad principal</h4><p>Explica una mejora concreta sin juzgar.</p></article>
+                <article><span>03</span><h4>Impacto posible</h4><p>Conecta el hallazgo con visibilidad, confianza o contacto.</p></article>
+                <article><span>04</span><h4>Recomendación puntual</h4><p>Propón una acción simple y alcanzable.</p></article>
+                <article><span>05</span><h4>CTA suave</h4><p>Invita a conversar si quiere ver una propuesta inicial.</p></article>
+              </div>
+            </details>
+
+            <div class="score-guide">
+              <div><strong>0</strong><span>No existe</span></div>
+              <div><strong>1</strong><span>Existe, pero débil</span></div>
+              <div><strong>2</strong><span>Bien resuelto</span></div>
+            </div>
+
+            <form id="perspectiveForm" class="perspective-form">
+              <div class="form-grid">
+                <label><span>Negocio o profesional</span><input id="businessName" type="text" placeholder="Ej. Consultorio Dental Aurora" /></label>
+                <label><span>Especialidad</span><input id="specialty" type="text" placeholder="Ej. Dentista, psicóloga, nutrióloga" /></label>
+                <label><span>Ciudad / zona</span><input id="zone" type="text" placeholder="Ej. Coyoacán, CDMX" /></label>
+                <label><span>Canal revisado</span><input id="channel" type="text" placeholder="Sitio web, Instagram, Google Business..." /></label>
+              </div>
+
+              <div class="score-form-grid">
+                {scoreBlocks.map(([id, itemTitle, question]) => (
+                  <label class="score-field">
+                    <span>{itemTitle}</span>
+                    <small>{question}</small>
+                    <select id={id}>
+                      <option value="0">0 · No existe</option>
+                      <option value="1" selected>1 · Existe, pero débil</option>
+                      <option value="2">2 · Bien resuelto</option>
+                    </select>
+                  </label>
+                ))}
+              </div>
+
+              <label class="full-field"><span>Observaciones principales</span><textarea id="observations" rows="4" placeholder="Ej. Tiene buen contenido en Instagram, pero no hay una ruta clara para agendar ni una página posicionada por zona."></textarea></label>
+
+              <div class="form-actions">
+                <button type="submit">Generar resumen</button>
+                <button type="button" class="secondary" id="saveDraftButton">Guardar borrador</button>
+                <button type="button" class="ghost" id="clearFormButton">Limpiar</button>
+              </div>
+            </form>
+          </div>
+
+          <div class="panel-body panel-content" data-content="recommendation">
+            <div class="content-intro">
+              <p class="eyebrow">Paso 03 · Recomendación</p>
+              <h3>Resumen para enviar al prospecto.</h3>
+              <p>Después de evaluar, usa este mensaje como base. Se genera automáticamente desde Perspectiva Digital Express con tono consultivo, breve y listo para copiar.</p>
+            </div>
+            <aside class="result-card" id="resultCard">
+              <span>Resultado</span>
+              <strong id="resultScore">— / 10</strong>
+              <p id="resultLevel">Completa la evaluación para generar una recomendación.</p>
+              <textarea id="generatedMessage" rows="12" readonly placeholder="Aquí aparecerá el resumen listo para copiar después de evaluar."></textarea>
+              <div class="template-actions">
+                <button type="button" id="copyMessageButton">Copiar resumen</button>
+                <button class="secondary-action" type="button" data-panel="followup">Ver seguimiento sugerido</button>
+              </div>
+            </aside>
+          </div>
+
+          <div class="panel-body panel-content" data-content="objections">
+            <div class="content-intro">
+              <p class="eyebrow">Paso 04 · Objeciones</p>
+              <h3>Respuestas para rechazo, duda o falta de interés.</h3>
+              <p>El objetivo no es presionar. Es cuidar la relación, responder con respeto y dejar una puerta abierta.</p>
+            </div>
+            <div class="objection-grid">
+              <article class="template-card"><h4>No me interesa</h4><p>Muchas gracias por tomarte el tiempo de leer la información 🙌<br/><br/>Entiendo perfectamente. Mi intención era únicamente compartir una perspectiva externa que pudiera resultar útil para tu proyecto.<br/><br/>Te deseo mucho éxito y, si en algún momento necesitas una segunda opinión sobre tu presencia digital o algún tema relacionado con tecnología y crecimiento de tu práctica, con gusto estaré disponible.</p><button type="button" data-copy-template>Copiar</button></article>
+              <article class="template-card"><h4>Ya tengo página web</h4><p>Excelente, eso ya representa una base importante 👏<br/><br/>De hecho, muchas de las personas con las que trabajamos ya cuentan con sitio web. Normalmente el enfoque no está en reemplazar lo que tienen, sino en identificar oportunidades para mejorar visibilidad, claridad o conversión dependiendo de sus objetivos actuales.<br/><br/>En cualquier caso, gracias por tu tiempo y por permitirme conocer un poco más de tu proyecto.</p><button type="button" data-copy-template>Copiar</button></article>
+              <article class="template-card"><h4>No tengo presupuesto</h4><p>Lo entiendo perfectamente. Muchas veces el momento adecuado para invertir en presencia digital depende de las prioridades y objetivos de cada etapa.<br/><br/>Mi intención principal era compartir información que pudiera ser útil para tu proyecto, independientemente de que exista o no una colaboración inmediata.<br/><br/>Cuando consideres que es un buen momento para explorar opciones, con gusto podemos retomar la conversación.</p><button type="button" data-copy-template>Copiar</button></article>
+              <article class="template-card"><h4>Ya tengo proveedor</h4><p>Qué bueno que ya cuentas con alguien que te apoya en esa parte 🙌<br/><br/>En ese caso, mi intención no sería reemplazarlo, sino ofrecerte una perspectiva externa sobre visibilidad, claridad y conversión si en algún momento te resulta útil comparar oportunidades.<br/><br/>Gracias por responderme y mucho éxito con tu proyecto.</p><button type="button" data-copy-template>Copiar</button></article>
+              <article class="template-card"><h4>Lo voy a pensar</h4><p>Claro, tómate tu tiempo. La presencia digital funciona mejor cuando se alinea con el momento y los objetivos reales del proyecto.<br/><br/>Si te parece, puedo dejarte por aquí el resumen y más adelante, cuando lo consideres oportuno, retomamos la conversación con calma.</p><button type="button" data-copy-template>Copiar</button></article>
+            </div>
+          </div>
+
+          <div class="panel-body panel-content" data-content="followup">
+            <div class="content-intro">
+              <p class="eyebrow">Paso 05 · Seguimiento</p>
+              <h3>Mensajes según temperatura del lead.</h3>
+              <p>Usa el seguimiento únicamente cuando exista una razón clara. Mejor pocos mensajes útiles que insistencia sin contexto.</p>
+            </div>
+            <div class="follow-grid">
+              <article class="template-card"><h4>Lead frío · No respondió</h4><p>Hola, buena tarde 👋<br/><br/>Solo quería retomar mi mensaje anterior. La idea era compartirte una perspectiva breve sobre oportunidades digitales para tu práctica, sin costo ni compromiso.<br/><br/>Si no es prioridad en este momento, lo entiendo perfectamente. Gracias por tu tiempo.</p><button type="button" data-copy-template>Copiar</button></article>
+              <article class="template-card"><h4>Lead tibio · Pidió información</h4><p>Gracias por responder 🙌<br/><br/>Te comparto una perspectiva breve y concreta. Me enfoqué en visibilidad, confianza y facilidad de contacto, porque suelen ser los tres puntos que más influyen cuando una persona decide escribir por WhatsApp.</p><button type="button" data-copy-template>Copiar</button></article>
+              <article class="template-card"><h4>Lead caliente · Quiere saber costo</h4><p>Con gusto. Antes de hablar de costo, me gustaría confirmar qué nivel de solución tendría más sentido para tu caso: una landing esencial para ordenar presencia y contacto, o una estructura más robusta con SEO local y estrategia de conversión.<br/><br/>¿Te parece si te comparto ambas opciones de forma breve?</p><button type="button" data-copy-template>Copiar</button></article>
+            </div>
+          </div>
+        </div>
+      </aside>
     </div>
 
     <script type="module">
@@ -115,6 +257,167 @@ const modules = [
         await supabase.auth.signOut();
         window.location.href = '/suite/login';
       });
+
+      const panel = document.getElementById('rightPanel');
+      const closePanel = document.getElementById('closePanel');
+      const panelTitle = document.getElementById('panelTitle');
+      const panelEyebrow = document.getElementById('panelEyebrow');
+      const navItems = document.querySelectorAll('[data-panel]');
+      const titles = {
+        overview: ['Dashboard', 'Centro operativo'],
+        prospecting: ['Script de prospección', 'Paso 01'],
+        evaluation: ['Perspectiva Digital', 'Paso 02'],
+        recommendation: ['Recomendación', 'Paso 03'],
+        objections: ['Objeciones y respuestas', 'Paso 04'],
+        followup: ['Seguimiento', 'Paso 05'],
+      };
+
+      function setActiveNav(key) {
+        navItems.forEach((item) => item.classList.toggle('active', item.dataset.panel === key));
+      }
+
+      function openPanel(key) {
+        if (key === 'overview') {
+          panel.classList.remove('open');
+          panel.setAttribute('aria-hidden', 'true');
+          setActiveNav(key);
+          return;
+        }
+        document.querySelectorAll('.panel-content').forEach((content) => {
+          content.classList.toggle('active', content.dataset.content === key);
+        });
+        panelTitle.textContent = titles[key]?.[0] || 'DIGITEM Suite';
+        panelEyebrow.textContent = titles[key]?.[1] || 'Suite';
+        panel.classList.add('open');
+        panel.setAttribute('aria-hidden', 'false');
+        setActiveNav(key);
+      }
+
+      document.querySelectorAll('[data-panel]').forEach((button) => {
+        button.addEventListener('click', () => openPanel(button.dataset.panel));
+      });
+      document.querySelectorAll('[data-open-panel]').forEach((card) => {
+        card.addEventListener('click', () => openPanel(card.dataset.openPanel));
+      });
+      closePanel?.addEventListener('click', () => openPanel('overview'));
+      document.addEventListener('keydown', (event) => { if (event.key === 'Escape') openPanel('overview'); });
+
+      const scoreFields = ['visibilityScore', 'trustScore', 'clarityScore', 'conversionScore', 'presenceScore'];
+      const labels = {
+        visibilityScore: 'Visibilidad local',
+        trustScore: 'Confianza',
+        clarityScore: 'Claridad del servicio',
+        conversionScore: 'Contacto por WhatsApp',
+        presenceScore: 'Presencia profesional',
+      };
+
+      const form = document.getElementById('perspectiveForm');
+      const generatedMessage = document.getElementById('generatedMessage');
+      const resultScore = document.getElementById('resultScore');
+      const resultLevel = document.getElementById('resultLevel');
+
+      function getLevel(score) {
+        if (score <= 3) return 'Presencia digital débil';
+        if (score <= 6) return 'Presencia funcional, pero con oportunidades claras';
+        if (score <= 8) return 'Buena base digital';
+        return 'Presencia sólida y lista para escalar';
+      }
+
+      function buildMessage() {
+        const business = document.getElementById('businessName').value.trim() || 'tu presencia digital';
+        const specialty = document.getElementById('specialty').value.trim() || 'profesional de salud';
+        const zone = document.getElementById('zone').value.trim() || 'tu zona';
+        const channel = document.getElementById('channel').value.trim() || 'tus canales digitales';
+        const observations = document.getElementById('observations').value.trim();
+        const scores = scoreFields.map((id) => Number(document.getElementById(id).value));
+        const total = scores.reduce((acc, value) => acc + value, 0);
+        const weakest = scoreFields.map((id, index) => ({ id, value: scores[index] })).sort((a, b) => a.value - b.value).slice(0, 2).map((item) => labels[item.id]);
+        const level = getLevel(total);
+
+        resultScore.textContent = `${total} / 10`;
+        resultLevel.textContent = level;
+
+        return `Hola, buena tarde 👋\n\nTe comparto la perspectiva breve que preparé sobre ${business}.\n\nRevisé principalmente ${channel}, considerando tu especialidad como ${specialty} en ${zone}.\n\nResultado general: ${total}/10 · ${level}.\n\nLo que observé con mayor oportunidad de mejora:\n• ${weakest.join('\n• ')}\n\n${observations ? `Observación principal:\n${observations}\n\n` : ''}Desde mi perspectiva, hay una oportunidad interesante para ordenar la presencia digital, explicar mejor los servicios y facilitar que una persona pueda contactarte con más confianza por WhatsApp.\n\nNo necesariamente se trata de crear algo complejo; muchas veces una estructura clara, enfocada en SEO local, confianza y contacto directo, puede ser suficiente para empezar a mejorar la experiencia del paciente.\n\nSi te interesa, con gusto puedo mostrarte una propuesta inicial muy breve para tu caso.`
+      }
+
+      form?.addEventListener('submit', (event) => {
+        event.preventDefault();
+        generatedMessage.value = buildMessage();
+        openPanel('recommendation');
+      });
+
+      document.getElementById('copyMessageButton')?.addEventListener('click', async () => {
+        if (!generatedMessage.value) generatedMessage.value = buildMessage();
+        await navigator.clipboard.writeText(generatedMessage.value);
+        document.getElementById('copyMessageButton').textContent = 'Copiado';
+        setTimeout(() => (document.getElementById('copyMessageButton').textContent = 'Copiar resumen'), 1500);
+      });
+
+      document.getElementById('saveDraftButton')?.addEventListener('click', () => {
+        const payload = {
+          businessName: document.getElementById('businessName').value,
+          specialty: document.getElementById('specialty').value,
+          zone: document.getElementById('zone').value,
+          channel: document.getElementById('channel').value,
+          observations: document.getElementById('observations').value,
+          scores: Object.fromEntries(scoreFields.map((id) => [id, document.getElementById(id).value])),
+          generatedMessage: generatedMessage.value || buildMessage(),
+          savedAt: new Date().toISOString(),
+        };
+        localStorage.setItem('digitem_perspective_draft', JSON.stringify(payload));
+        alert('Borrador guardado localmente. En V1.4 lo guardaremos en Supabase.');
+      });
+
+      document.getElementById('clearFormButton')?.addEventListener('click', () => {
+        form.reset();
+        generatedMessage.value = '';
+        resultScore.textContent = '— / 10';
+        resultLevel.textContent = 'Completa la evaluación para generar una recomendación.';
+      });
+
+      const saved = localStorage.getItem('digitem_perspective_draft');
+      if (saved) {
+        try {
+          const payload = JSON.parse(saved);
+          ['businessName','specialty','zone','channel','observations'].forEach((id) => {
+            if (payload[id]) document.getElementById(id).value = payload[id];
+          });
+          Object.entries(payload.scores || {}).forEach(([id, value]) => {
+            if (document.getElementById(id)) document.getElementById(id).value = value;
+          });
+          if (payload.generatedMessage) generatedMessage.value = payload.generatedMessage;
+        } catch {}
+      }
+
+      document.getElementById('copyScriptButton')?.addEventListener('click', async () => {
+        const text = Array.from(document.querySelectorAll('#scriptText p')).map((p) => p.innerText).join('\n\n');
+        await navigator.clipboard.writeText(text);
+        document.getElementById('copyScriptButton').textContent = 'Copiado';
+        setTimeout(() => (document.getElementById('copyScriptButton').textContent = 'Copiar script'), 1500);
+      });
+
+      document.querySelectorAll('[data-copy-template]').forEach((button) => {
+        button.addEventListener('click', async () => {
+          const article = button.closest('.template-card');
+          const text = article.querySelector('p')?.innerText || '';
+          await navigator.clipboard.writeText(text);
+          button.textContent = 'Copiado';
+          setTimeout(() => (button.textContent = 'Copiar'), 1500);
+        });
+      });
+
+      document.querySelectorAll('[data-state]').forEach((button) => {
+        button.addEventListener('click', () => {
+          document.querySelectorAll('[data-state]').forEach((item) => item.classList.remove('active'));
+          button.classList.add('active');
+          localStorage.setItem('digitem_pipeline_state', button.dataset.state || 'pendiente');
+        });
+      });
+
+      const savedState = localStorage.getItem('digitem_pipeline_state');
+      if (savedState) {
+        document.querySelectorAll('[data-state]').forEach((item) => item.classList.toggle('active', item.dataset.state === savedState));
+      }
     </script>
   </body>
 </html>
@@ -127,49 +430,127 @@ const modules = [
     --dark: #333333;
     --white: #FFFFFF;
     --ink: #111827;
-    --muted: #6b7280;
+    --muted: #66737d;
     --line: rgba(17, 24, 39, .11);
+    --shadow: 0 22px 70px rgba(17,24,39,.08);
   }
   * { box-sizing: border-box; }
   html { scroll-behavior: smooth; }
-  body { margin: 0; font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; color: var(--ink); background: #f7fafb; }
-  a { color: inherit; text-decoration: none; }
-  .suite-shell { min-height: 100svh; display: grid; grid-template-columns: 280px 1fr; }
-  .sidebar { position: sticky; top: 0; height: 100svh; display: flex; flex-direction: column; gap: 34px; padding: 28px 22px; border-right: 1px solid var(--line); background: rgba(255,255,255,.82); backdrop-filter: blur(22px); }
-  .brand { font-size: 1.35rem; font-weight: 850; letter-spacing: -.06em; background: linear-gradient(100deg, var(--teal), #176b78 46%, var(--orange)); -webkit-background-clip: text; background-clip: text; color: transparent; width: max-content; }
+  body { margin: 0; font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; color: var(--ink); background: radial-gradient(circle at 10% 0%, rgba(17,153,158,.1), transparent 30%), #f7f8f8; }
+  button, input, textarea, select { font: inherit; }
+  button { cursor: pointer; }
+  .suite-shell { min-height: 100svh; display: grid; grid-template-columns: 292px 1fr; }
+  .sidebar { position: sticky; top: 0; height: 100svh; display: flex; flex-direction: column; gap: 26px; padding: 24px 18px; border-right: 1px solid var(--line); background: rgba(255,255,255,.78); backdrop-filter: blur(24px); }
+  .sidebar-top { padding: 10px 8px; }
+  .brand { display: inline-block; text-decoration: none; font-weight: 950; letter-spacing: -.08em; font-size: 1.38rem; background: linear-gradient(115deg, #11999E 0%, #0b6f73 45%, #E07422 100%); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .sidebar-top p { margin: 8px 0 0; color: var(--muted); font-size: .88rem; }
   nav { display: grid; gap: 8px; }
-  nav a { padding: 12px 14px; border-radius: 14px; color: #53616a; font-weight: 720; transition: background .28s ease, color .28s ease, transform .28s ease; }
-  nav a:hover, nav a.active { background: rgba(17,153,158,.09); color: #126f78; transform: translateX(2px); }
-  .sidebar button { margin-top: auto; border: 1px solid var(--line); background: #fff; border-radius: 999px; padding: 13px 16px; font: inherit; font-weight: 800; cursor: pointer; color: #3d4a52; }
-  .dashboard { padding: 34px clamp(22px, 4vw, 56px) 70px; max-width: 1280px; width: 100%; margin: 0 auto; }
+  .nav-item { width: 100%; display: flex; align-items: center; gap: 10px; text-decoration: none; border: 1px solid transparent; border-radius: 16px; padding: 12px 12px; color: #46515a; background: transparent; text-align: left; font-weight: 800; transition: background .25s ease, border-color .25s ease, transform .25s ease; }
+  .nav-item:hover { background: #fff; border-color: var(--line); transform: translateX(2px); }
+  .nav-item.active { background: linear-gradient(135deg, rgba(17,153,158,.12), rgba(224,116,34,.08)); border-color: rgba(17,153,158,.2); color: var(--ink); }
+  .nav-item span { display: grid; place-items: center; width: 30px; height: 30px; border-radius: 10px; color: var(--teal); background: rgba(17,153,158,.1); font-size: .78rem; font-weight: 900; }
+  .sidebar-footer { margin-top: auto; border: 1px solid var(--line); border-radius: 22px; padding: 16px; background: #fff; }
+  .sidebar-footer small { display: block; color: var(--muted); margin-bottom: 8px; }
+  .sidebar-footer strong { display: block; font-size: .95rem; letter-spacing: -.03em; line-height: 1.35; }
+  .sidebar-footer button { width: 100%; margin-top: 16px; border: 1px solid var(--line); background: #fff; border-radius: 999px; padding: 12px 14px; font-weight: 850; color: #3d4a52; }
+  .workspace { padding: 34px clamp(22px, 4vw, 56px) 70px; max-width: 1280px; width: 100%; margin: 0 auto; }
   .topbar { display: flex; align-items: center; justify-content: space-between; gap: 18px; margin-bottom: 28px; }
   .eyebrow { margin: 0 0 10px; color: var(--teal); text-transform: uppercase; letter-spacing: .16em; font-size: .74rem; font-weight: 850; }
-  h1, h2, h3, p { margin-top: 0; }
-  h1 { margin-bottom: 0; font-size: clamp(2.25rem, 4.8vw, 5rem); line-height: .94; letter-spacing: -.075em; }
+  h1, h2, h3, h4, p { margin-top: 0; }
+  h1 { margin-bottom: 0; font-size: clamp(2.25rem, 4.8vw, 4.8rem); line-height: .94; letter-spacing: -.075em; }
+  h2, h3 { letter-spacing: -.065em; }
   .user-pill { display: inline-flex; align-items: center; gap: 10px; border: 1px solid var(--line); border-radius: 999px; padding: 10px 14px; background: #fff; box-shadow: 0 14px 34px rgba(17,24,39,.06); color: #45515a; }
   .user-pill span { width: 9px; height: 9px; border-radius: 999px; background: var(--teal); box-shadow: 0 0 0 5px rgba(17,153,158,.12); }
-  .hero-card { display: grid; grid-template-columns: 1fr minmax(240px, 340px); gap: 24px; align-items: end; padding: clamp(28px, 5vw, 54px); border: 1px solid rgba(255,255,255,.75); border-radius: 34px; background: radial-gradient(circle at 16% 0%, rgba(17,153,158,.18), transparent 30%), linear-gradient(135deg, #fff, #eef8f8); box-shadow: 0 26px 70px rgba(17,24,39,.09); }
-  .hero-card h2 { margin-bottom: 18px; font-size: clamp(2rem, 4vw, 4.25rem); line-height: .96; letter-spacing: -.07em; max-width: 760px; }
-  .hero-card p:not(.eyebrow), .workspace-preview p { color: var(--muted); line-height: 1.75; max-width: 700px; }
+  .hero-card { display: grid; grid-template-columns: 1fr minmax(250px, 340px); gap: 24px; align-items: end; padding: clamp(28px, 5vw, 54px); border: 1px solid rgba(255,255,255,.75); border-radius: 34px; background: radial-gradient(circle at 16% 0%, rgba(17,153,158,.18), transparent 30%), linear-gradient(135deg, #fff, #eef8f8); box-shadow: var(--shadow); }
+  .hero-card h2 { margin-bottom: 18px; font-size: clamp(2rem, 4vw, 4.25rem); line-height: .96; max-width: 760px; }
+  .hero-card p:not(.eyebrow), .content-intro p, .pipeline-card small, .dashboard-insights p { color: var(--muted); line-height: 1.75; }
   .status-card { border: 1px solid rgba(17,153,158,.18); border-radius: 24px; background: rgba(255,255,255,.78); padding: 22px; box-shadow: 0 18px 46px rgba(17,24,39,.08); }
   .status-card span { color: var(--muted); font-size: .78rem; font-weight: 850; text-transform: uppercase; letter-spacing: .12em; }
   .status-card strong { display: block; margin: 10px 0 8px; font-size: 1.35rem; letter-spacing: -.04em; }
   .status-card p { margin-bottom: 0; color: var(--muted); line-height: 1.65; }
-  .module-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 22px; }
-  .module-card { min-height: 255px; display: flex; flex-direction: column; border: 1px solid var(--line); border-radius: 28px; padding: 22px; background: #fff; box-shadow: 0 16px 44px rgba(17,24,39,.06); transition: transform .38s ease, box-shadow .38s ease, border-color .38s ease; }
-  .module-card:hover { transform: translateY(-5px); border-color: rgba(17,153,158,.28); box-shadow: 0 24px 70px rgba(17,24,39,.10); }
-  .module-top { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 36px; }
-  .module-top span { color: var(--teal); font-size: .72rem; text-transform: uppercase; letter-spacing: .12em; font-weight: 850; }
-  .module-top strong { color: rgba(17,24,39,.16); font-size: 2rem; letter-spacing: -.08em; }
-  .module-card h3 { margin-bottom: 10px; font-size: 1.55rem; letter-spacing: -.055em; }
-  .module-card p { color: var(--muted); line-height: 1.68; }
-  .ghost-button { margin-top: auto; align-self: flex-start; border: 1px solid var(--line); background: #fff; border-radius: 999px; padding: 11px 14px; font: inherit; font-size: .9rem; font-weight: 850; color: #25313a; cursor: pointer; }
-  .workspace-preview { display: grid; grid-template-columns: 1fr minmax(280px, 420px); gap: 24px; margin-top: 24px; border: 1px solid var(--line); border-radius: 30px; padding: clamp(24px, 4vw, 44px); background: #111827; color: #fff; }
-  .workspace-preview h2 { font-size: clamp(1.8rem, 3vw, 3.2rem); line-height: 1; letter-spacing: -.06em; }
-  .workspace-preview p { color: rgba(255,255,255,.68); }
-  .workspace-preview ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 14px; align-content: center; }
-  .workspace-preview li { display: flex; gap: 12px; align-items: center; color: rgba(255,255,255,.82); font-weight: 650; }
-  .workspace-preview li span { width: 9px; height: 9px; border-radius: 999px; background: var(--orange); box-shadow: 0 0 0 5px rgba(224,116,34,.18); flex: 0 0 auto; }
-  @media (max-width: 980px) { .suite-shell { grid-template-columns: 1fr; } .sidebar { position: relative; height: auto; border-right: 0; border-bottom: 1px solid var(--line); } nav { grid-template-columns: repeat(3, 1fr); } .sidebar button { margin-top: 0; } .module-grid { grid-template-columns: repeat(2, 1fr); } }
-  @media (max-width: 680px) { .dashboard { padding: 22px 16px 48px; } .topbar, .hero-card, .workspace-preview { grid-template-columns: 1fr; } .topbar { align-items: flex-start; } .user-pill { max-width: 100%; overflow: hidden; } nav { grid-template-columns: 1fr 1fr; } .module-grid { grid-template-columns: 1fr; } .hero-card, .workspace-preview { border-radius: 24px; } }
+  .phase-pills { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+  .phase-pill { border: 1px solid rgba(17,153,158,.14); background: #fff; color: #52616a; border-radius: 999px; padding: 8px 10px; font-size: .78rem; font-weight: 850; transition: background .25s ease, color .25s ease, border-color .25s ease, transform .25s ease; }
+  .phase-pill:hover { transform: translateY(-1px); border-color: rgba(17,153,158,.35); }
+  .phase-pill.active { background: rgba(17,153,158,.11); color: var(--teal); border-color: rgba(17,153,158,.3); }
+
+  .pipeline-board { display: grid; grid-template-columns: repeat(5, 1fr); gap: 14px; margin-top: 22px; }
+  .pipeline-card { min-height: 220px; border: 1px solid var(--line); border-radius: 26px; padding: 20px; background: #fff; box-shadow: 0 16px 44px rgba(17,24,39,.05); transition: transform .35s ease, border-color .35s ease, box-shadow .35s ease; }
+  .pipeline-card:hover { transform: translateY(-5px); border-color: rgba(17,153,158,.28); box-shadow: 0 24px 70px rgba(17,24,39,.10); }
+  .pipeline-card.featured { background: radial-gradient(circle at top right, rgba(224,116,34,.14), transparent 35%), linear-gradient(180deg, #fff, #f7fbfb); }
+  .pipeline-card > span { color: rgba(17,24,39,.22); font-size: 2.25rem; font-weight: 900; letter-spacing: -.09em; }
+  .pipeline-card p { color: var(--teal); font-size: .72rem; text-transform: uppercase; letter-spacing: .13em; font-weight: 900; margin: 16px 0 10px; }
+  .pipeline-card h3 { margin: 0 0 10px; font-size: 1.35rem; line-height: 1.05; }
+  .dashboard-insights { margin-top: 18px; display: grid; grid-template-columns: minmax(0, .75fr) minmax(0, 1.25fr); gap: 18px; border: 1px solid var(--line); border-radius: 30px; background: #fff; padding: clamp(22px, 4vw, 34px); }
+  .dashboard-insights h2 { margin: 0; font-size: clamp(1.9rem, 4vw, 3.4rem); line-height: .98; }
+  .insight-list { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+  .insight-list article { display: flex; gap: 12px; align-items: center; border: 1px solid var(--line); border-radius: 20px; padding: 14px; background: #fbfdfd; }
+  .insight-list strong { display: grid; place-items: center; width: 34px; height: 34px; border-radius: 12px; background: rgba(17,153,158,.1); color: var(--teal); }
+  .insight-list span { color: #45515a; font-weight: 700; }
+  .right-panel { position: fixed; top: 0; right: 0; width: min(780px, calc(100vw - 292px)); height: 100svh; z-index: 80; transform: translateX(104%); transition: transform .55s cubic-bezier(.22,1,.36,1); pointer-events: none; }
+  .right-panel.open { transform: translateX(0); pointer-events: auto; }
+  .panel-shell { height: 100%; display: flex; flex-direction: column; border-left: 1px solid rgba(17,24,39,.12); background: rgba(255,255,255,.94); backdrop-filter: blur(24px); box-shadow: -34px 0 90px rgba(17,24,39,.13); }
+  .panel-header { display: flex; align-items: flex-start; justify-content: space-between; gap: 18px; padding: 28px 30px 18px; border-bottom: 1px solid var(--line); }
+  .panel-header h2 { margin: 0; font-size: clamp(1.6rem, 3vw, 2.55rem); line-height: 1; }
+  .panel-close { width: 42px; height: 42px; border-radius: 999px; border: 1px solid var(--line); background: #fff; font-size: 1.6rem; color: #475569; }
+  .panel-body { display: none; padding: 26px 30px 34px; overflow-y: auto; }
+  .panel-body.active { display: block; }
+  .content-intro { max-width: 640px; margin-bottom: 20px; }
+  .content-intro h3 { margin-bottom: 12px; font-size: clamp(2rem, 4vw, 3.55rem); line-height: .96; }
+  .script-card, .guide-box, .template-card { border: 1px solid rgba(17,153,158,.14); border-radius: 26px; background: #f7fbfb; padding: 22px; margin-bottom: 16px; }
+  .script-card p, .template-card p { margin-bottom: 16px; color: #334155; line-height: 1.75; }
+  .template-actions { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+  .primary-action, .secondary-action, .form-actions button, .result-card button, .template-card button { border: 0; border-radius: 999px; padding: 12px 16px; background: var(--teal); color: #fff; font-weight: 850; cursor: pointer; transition: transform .25s ease, filter .25s ease; }
+  .secondary-action { background: #111827; }
+  .primary-action:hover, .secondary-action:hover, .form-actions button:hover, .result-card button:hover, .template-card button:hover { transform: translateY(-2px); filter: brightness(.98); }
+  .guide-box summary { cursor: pointer; font-weight: 900; letter-spacing: -.03em; color: #26323a; }
+  .score-guide { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-bottom: 18px; }
+  .score-guide div { display: flex; align-items: center; gap: 10px; border-radius: 18px; background: #f5fafb; border: 1px solid rgba(17,153,158,.12); padding: 12px; }
+  .score-guide strong { display: grid; place-items: center; width: 32px; height: 32px; border-radius: 12px; background: #fff; color: var(--teal); box-shadow: 0 8px 24px rgba(17,24,39,.06); }
+  .score-guide span { color: #4f5e66; font-weight: 750; font-size: .9rem; }
+  .perspective-form { display: grid; gap: 16px; }
+  .form-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
+  label { display: grid; gap: 8px; }
+  label span { font-weight: 800; color: #25313a; font-size: .92rem; }
+  label small { color: var(--muted); line-height: 1.45; }
+  input, textarea, select { width: 100%; border: 1px solid rgba(17,24,39,.13); border-radius: 16px; background: #fff; padding: 13px 14px; color: var(--ink); outline: none; transition: border-color .25s ease, box-shadow .25s ease; }
+  input:focus, textarea:focus, select:focus { border-color: rgba(17,153,158,.5); box-shadow: 0 0 0 5px rgba(17,153,158,.10); }
+  .score-form-grid { display: grid; grid-template-columns: 1fr; gap: 10px; }
+  .score-field { border: 1px solid var(--line); border-radius: 20px; padding: 14px; background: #fbfdfd; }
+  .score-field select { margin-top: 8px; padding: 10px; border-radius: 12px; }
+  .form-actions { display: flex; flex-wrap: wrap; gap: 10px; }
+  .form-actions .secondary { background: #111827; }
+  .form-actions .ghost { background: #fff; color: #334155; border: 1px solid var(--line); }
+  .result-card { margin-top: 18px; border: 1px solid rgba(17,153,158,.16); border-radius: 26px; background: linear-gradient(180deg, #f5fbfb, #fff); padding: 22px; box-shadow: var(--shadow); }
+  .result-card span { color: var(--teal); text-transform: uppercase; letter-spacing: .14em; font-size: .72rem; font-weight: 900; }
+  .result-card strong { display: block; margin: 10px 0 8px; font-size: 2.4rem; letter-spacing: -.08em; }
+  .result-card p { color: var(--muted); line-height: 1.55; }
+  .result-card textarea { margin: 12px 0; min-height: 280px; resize: vertical; }
+  .diagnostic-flow { display: grid; gap: 12px; }
+  .diagnostic-flow.compact { margin-top: 16px; grid-template-columns: 1fr; }
+  .diagnostic-flow article { border: 1px solid var(--line); border-radius: 22px; padding: 18px; background: linear-gradient(180deg, #fff, #fbfdfd); }
+  .diagnostic-flow span { display: inline-block; color: rgba(17,24,39,.28); font-size: 1.45rem; font-weight: 900; letter-spacing: -.08em; margin-bottom: 12px; }
+  .diagnostic-flow h4, .template-card h4 { margin: 0 0 8px; font-size: 1.16rem; letter-spacing: -.04em; }
+  .diagnostic-flow p { color: var(--muted); margin-bottom: 0; line-height: 1.6; }
+  .objection-grid, .follow-grid { display: grid; grid-template-columns: 1fr; gap: 12px; }
+  .template-card button { background: #111827; }
+  @media (max-width: 1180px) { .pipeline-board { grid-template-columns: repeat(2, 1fr); } .dashboard-insights { grid-template-columns: 1fr; } }
+  @media (max-width: 900px) {
+    .suite-shell { grid-template-columns: 1fr; }
+    .sidebar { position: relative; height: auto; border-right: 0; border-bottom: 1px solid var(--line); }
+    nav { grid-template-columns: repeat(2, 1fr); }
+    .sidebar-footer { display: none; }
+    .hero-card { grid-template-columns: 1fr; }
+    .right-panel { inset: auto 0 0 0; width: 100%; height: 92svh; transform: translateY(104%); }
+    .right-panel.open { transform: translateY(0); }
+    .panel-shell { border-left: 0; border-top: 1px solid rgba(17,24,39,.12); border-radius: 28px 28px 0 0; }
+  }
+  @media (max-width: 680px) {
+    .workspace { padding: 22px 16px 48px; }
+    .topbar { align-items: flex-start; flex-direction: column; }
+    .user-pill { max-width: 100%; overflow: hidden; }
+    .hero-card, .dashboard-insights { border-radius: 26px; padding: 22px; }
+    .pipeline-board, .form-grid, .score-guide, .insight-list { grid-template-columns: 1fr; }
+    .panel-header, .panel-body { padding-left: 20px; padding-right: 20px; }
+    .nav-item { padding: 10px; }
+  }
 </style>
