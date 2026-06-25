@@ -1,27 +1,18 @@
-# DIGITEM-V1.3.3
+# DIGITEM-V1.8.4
 
-Iteración de pulido comercial para DIGITEM Suite.
+Cambios:
+- Eliminar seguimientos individuales desde el historial.
+- Eliminar prospectos con modal Poka-Yoke de doble confirmación:
+  1. Escribir exactamente `Eliminar prospecto`.
+  2. Escribir exactamente el nombre del prospecto.
+- Modales cancelables para evitar eliminaciones accidentales.
 
-## Cambios
-
-- Se mantiene el flujo: Prospección → Evaluación → Recomendación → Objeciones → Seguimiento.
-- Se agregan estados rápidos del pipeline: Pendiente, Aceptó, Evaluado, Recomendado, Seguimiento.
-- Se mejora el resumen generado para sonar más consultivo, profesional y listo para copiar.
-- Se mantienen botones de copiar en script, recomendación, objeciones y seguimientos.
-- El guardado sigue siendo local temporal; Supabase para datos reales queda para V1.4.
-
-## Ejecutar local
+Ejecutar:
 
 ```bash
 cd ~/Downloads
-unzip -o "DIGITEM-V1.3.3.zip"
-cd "DIGITEM-V1.3.3"
+unzip -o "DIGITEM-V1.8.4.zip"
+cd "DIGITEM-V1.8.4"
 npm install
 npm run dev
-```
-
-Abrir:
-
-```text
-http://localhost:4321/suite/login
 ```

@@ -13,6 +13,7 @@ const description = 'Restablecimiento seguro de contraseña para usuarios intern
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+    <script is:inline src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   </head>
   <body>
     <main class="reset-shell">
@@ -55,8 +56,8 @@ const description = 'Restablecimiento seguro de contraseña para usuarios intern
       </section>
     </main>
 
-    <script type="module">
-      import { createClient } from 'https://esm.sh/@supabase/supabase-js@2';
+    <script type="module" is:inline>
+      const { createClient } = window.supabase;
 
       const SUPABASE_URL = 'https://cppplmloraanbnseqnka.supabase.co';
       const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImNwcHBsbWxvcmFhbmJuc2VxbmthIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODE3Mjk5MjYsImV4cCI6MjA5NzMwNTkyNn0.Nw80dCvEqd2jmYo5pR1oVSfpDV2EQxV46W0YKuoOPbE';

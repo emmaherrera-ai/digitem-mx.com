@@ -1,6 +1,6 @@
 {
   "name": "digitem-mx-website-astro",
-  "version": "1.0.0",
+  "version": "1.5.2",
   "type": "module",
   "scripts": {
     "dev": "astro dev",
